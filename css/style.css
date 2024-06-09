@@ -307,7 +307,7 @@ a.more {
   right: 0;
   position: absolute;
   content: "";
-  background: #dce5e4;
+  background: var(--medium-beige);
   height: 0%;
   z-index: -1;
   border-radius: 10px;
@@ -520,12 +520,12 @@ a.more {
   height: 58px;
   line-height: 58px;
   border-radius: 50%;
-  background: rgba(59, 93, 80, 0.1);
+  background: var(--light-pink);
   color: #2f2f2f;
   transition: 0.3s all ease;
 }
 .testimonial-slider-wrap #testimonial-nav > span:hover {
-  background: #3b5d50;
+  background: var(--light-pink);
   color: #fff;
 }
 .testimonial-slider-wrap #testimonial-nav .prev {
@@ -570,7 +570,10 @@ a.more {
 }
 .testimonial-slider-wrap .tns-nav button:hover:before,
 .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
-  background-color: #3b5d50;
+  background-color: var(--light-pink);
+}
+#checkout-form{
+  background-color: var(--cream);
 }
 .before-footer-section {
   padding: 7rem 0 12rem 0 !important;
@@ -605,7 +608,7 @@ a.more {
 .footer-section .subscription-form h3 {
   font-size: 18px;
   font-weight: 500;
-  color: #3b5d50;
+  color: var(--light-pink);
 }
 .footer-section .subscription-form .form-control {
   height: 50px;
@@ -616,7 +619,7 @@ a.more {
 .footer-section .subscription-form .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #3b5d50;
+  border-color: var(--light-pink);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .footer-section .subscription-form .form-control::-webkit-input-placeholder {
@@ -658,7 +661,7 @@ a.more {
   font-size: 32px;
   font-weight: 500;
   text-decoration: none;
-  color: #3b5d50;
+  color: var(--pink);
 }
 .footer-section .custom-social li {
   margin: 2px;
@@ -670,12 +673,12 @@ a.more {
   text-align: center;
   line-height: 40px;
   display: inline-block;
-  background: #dce5e4;
-  color: #3b5d50;
+  background: #e5dce4;
+  color: var(--pink);
   border-radius: 50%;
 }
 .footer-section .custom-social li a:hover {
-  background: #3b5d50;
+  background: var(--pink);
   color: #fff;
 }
 .footer-section .border-top {
@@ -691,13 +694,18 @@ a.more {
   height: 50px;
   border-radius: 10px;
   font-family: "Inter", sans-serif;
+  background-color: var(--cream);
 }
 .form-control:active,
 .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #3b5d50;
+  border-color: var(--light-pink);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--cream);
+}
+input:-webkit-autofill:active {
+  background-color: var(--cream) !important;
 }
 .form-control::-webkit-input-placeholder {
   font-size: 14px;
@@ -720,7 +728,7 @@ a.more {
   height: 50px;
   line-height: 50px;
   text-align: center;
-  background: #3b5d50;
+  background: var(--light-pink);
   margin-right: 20px;
   color: #fff;
 }
@@ -751,7 +759,7 @@ textarea {
   color: rgba(0, 0, 0, 0.8);
 }
 .site-blocks-table tbody tr:first-child td {
-  border-top: 1px solid #3b5d50 !important;
+  border-top: 1px solid var(--light-pink) !important;
 }
 .site-blocks-table .btn {
   background: none !important;
@@ -771,11 +779,11 @@ textarea {
   border-radius: 10px !important;
 }
 .text-primary {
-  color: #3b5d50 !important;
+  color: var(--light-pink) !important;
 }
 .thankyou-icon {
   position: relative;
-  color: #3b5d50;
+  color: var(--light-pink);
 }
 .thankyou-icon:before {
   position: absolute;
