@@ -15,7 +15,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="css/tiny-slider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<title>Nana - checkout</title>
 	</head>
 
 	<body>
@@ -24,7 +24,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+				<a class="navbar-brand" href="index.html">Nana<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -33,12 +33,12 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="index.html">Início</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="shop.html">Loja</a></li>
+						<li><a class="nav-link" href="about.html">Sobre nós</a></li>
+						<li><a class="nav-link" href="services.html">Serviços</a></li>
+						<li><a class="nav-link" href="contact.html">Contato</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -73,189 +73,120 @@
 		      <div class="row mb-5">
 		        <div class="col-md-12">
 		          <div class="border p-4 rounded" role="alert">
-		            Returning customer? <a href="#">Click here</a> to login
+		            Já é cliente? <a href="login.html">Clique aqui</a> para fazer login.
 		          </div>
 		        </div>
 		      </div>
 		      <div class="row">
-		        <div class="col-md-6 mb-5 mb-md-0">
-		          <h2 class="h3 mb-3 text-black">Billing Details</h2>
-		          <div class="p-3 p-lg-5 border bg-white">
+		        <div class="col-md-6 mb-5 mb-md-0"  id="checkout-form">
+		          <h2 class="h3 mb-3 text-black">Pagamento</h2>
+		          <div class="p-3 p-lg-5 border">
 		            <div class="form-group">
-		              <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
-		              <select id="c_country" class="form-control">
-		                <option value="1">Select a country</option>    
-		                <option value="2">bangladesh</option>    
-		                <option value="3">Algeria</option>    
-		                <option value="4">Afghanistan</option>    
-		                <option value="5">Ghana</option>    
-		                <option value="6">Albania</option>    
-		                <option value="7">Bahrain</option>    
-		                <option value="8">Colombia</option>    
-		                <option value="9">Dominican Republic</option>    
+		              <label for="estado" class="text-black">Estado <span class="text-danger">*</span></label>
+		              <select id="estado" class="form-control">
+						<option value="select">Selecione uma opção...</option>
+		                <option value="Acre">Acre</option>
+    					<option value="Alagoas">Alagoas</option>
+    					<option value="Amapá">Amapá</option>
+    					<option value="Amazonas">Amazonas</option>
+    					<option value="Bahia">Bahia</option>
+    					<option value="Ceará">Ceará</option>
+    					<option value="Distrito Federal">Distrito Federal</option>
+    					<option value="Espírito Santo">Espírito Santo</option>
+    					<option value="Goiás">Goiás</option>
+    					<option value="Maranhão">Maranhão</option>
+    					<option value="Mato Grosso">Mato Grosso</option>
+    					<option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+    					<option value="Minas Gerais">Minas Gerais</option>
+    					<option value="Pará">Pará</option>
+    					<option value="Paraíba">Paraíba</option>
+    					<option value="Paraná">Paraná</option>
+    					<option value="Pernambuco">Pernambuco</option>
+    					<option value="Piauí">Piauí</option>
+    					<option value="Rio de Janeiro">Rio de Janeiro</option>
+    					<option value="Rio Grande do Norte">Rio Grande do Norte</option>
+    					<option value="Rio Grande do Sul">Rio Grande do Sul</option>
+    					<option value="Rondônia">Rondônia</option>
+    					<option value="Roraima">Roraima</option>
+    					<option value="Santa Catarina">Santa Catarina</option>
+    					<option value="São Paulo">São Paulo</option>
+    					<option value="Sergipe">Sergipe</option>
+    					<option value="Tocantins">Tocantins</option>   
 		              </select>
 		            </div>
 		            <div class="form-group row">
 		              <div class="col-md-6">
-		                <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
+		                <label for="c_fname" class="text-black">Nome <span class="text-danger">*</span></label>
 		                <input type="text" class="form-control" id="c_fname" name="c_fname">
 		              </div>
 		              <div class="col-md-6">
-		                <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
+		                <label for="c_lname" class="text-black">Sobrenome <span class="text-danger">*</span></label>
 		                <input type="text" class="form-control" id="c_lname" name="c_lname">
 		              </div>
 		            </div>
 
 		            <div class="form-group row">
 		              <div class="col-md-12">
-		                <label for="c_companyname" class="text-black">Company Name </label>
+		                <label for="c_companyname" class="text-black">Nome fantasia </label>
 		                <input type="text" class="form-control" id="c_companyname" name="c_companyname">
 		              </div>
 		            </div>
 
 		            <div class="form-group row">
 		              <div class="col-md-12">
-		                <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+		                <label for="c_address" class="text-black">Endereço <span class="text-danger">*</span></label>
+		                <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Rua, avenida, etc.">
 		              </div>
 		            </div>
 
 		            <div class="form-group mt-3">
-		              <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+		              <input type="text" class="form-control" placeholder="Apartamento, logradouro, unidade, etc. (opcional)">
 		            </div>
-
-		            <div class="form-group row">
-		              <div class="col-md-6">
-		                <label for="c_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_state_country" name="c_state_country">
-		              </div>
-		              <div class="col-md-6">
-		                <label for="c_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
-		              </div>
-		            </div>
+		            
 
 		            <div class="form-group row mb-5">
 		              <div class="col-md-6">
-		                <label for="c_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
+		                <label for="c_email_address" class="text-black">E-mail <span class="text-danger">*</span></label>
 		                <input type="text" class="form-control" id="c_email_address" name="c_email_address">
 		              </div>
 		              <div class="col-md-6">
-		                <label for="c_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-		                <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
+		                <label for="c_phone" class="text-black">Telefone <span class="text-danger">*</span></label>
+		                <input type="text" class="form-control" id="c_phone" name="c_phone">
 		              </div>
 		            </div>
 
 		            <div class="form-group">
-		              <label for="c_create_account" class="text-black" data-bs-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> Create an account?</label>
+		              <label for="c_create_account" class="text-black" data-bs-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> Criar uma conta com esses dados?</label>
 		              <div class="collapse" id="create_an_account">
 		                <div class="py-2 mb-4">
-		                  <p class="mb-3">Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+		                  <p class="mb-3">Por favor insira uma senha para criar uma conta. Caso já possua cadastro em nosso site, faça login na opção no início da página.</p>
 		                  <div class="form-group">
-		                    <label for="c_account_password" class="text-black">Account Password</label>
+		                    <label for="c_account_password" class="text-black">Senha</label>
 		                    <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
 		                  </div>
 		                </div>
 		              </div>
 		            </div>
-
-
+				</br>
 		            <div class="form-group">
-		              <label for="c_ship_different_address" class="text-black" data-bs-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address"> Ship To A Different Address?</label>
-		              <div class="collapse" id="ship_different_address">
-		                <div class="py-2">
-
-		                  <div class="form-group">
-		                    <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
-		                    <select id="c_diff_country" class="form-control">
-		                      <option value="1">Select a country</option>    
-		                      <option value="2">bangladesh</option>    
-		                      <option value="3">Algeria</option>    
-		                      <option value="4">Afghanistan</option>    
-		                      <option value="5">Ghana</option>    
-		                      <option value="6">Albania</option>    
-		                      <option value="7">Bahrain</option>    
-		                      <option value="8">Colombia</option>    
-		                      <option value="9">Dominican Republic</option>    
-		                    </select>
-		                  </div>
-
-
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_fname" name="c_diff_fname">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_lname" name="c_diff_lname">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_companyname" class="text-black">Company Name </label>
-		                      <input type="text" class="form-control" id="c_diff_companyname" name="c_diff_companyname">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row  mb-3">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_address" class="text-black">Address <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="Street address">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group">
-		                    <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
-		                  </div>
-
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_state_country" name="c_diff_state_country">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row mb-5">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="Phone Number">
-		                    </div>
-		                  </div>
-
-		                </div>
-
-		              </div>
-		            </div>
-
-		            <div class="form-group">
-		              <label for="c_order_notes" class="text-black">Order Notes</label>
-		              <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
+		              <label for="c_order_notes" class="text-black">Informações adicionais/observações</label>
+		              <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Escreva aqui as informações adicionais..."></textarea>
 		            </div>
 
 		          </div>
 		        </div>
 		        <div class="col-md-6">
 
-		          <div class="row mb-5">
+		          <div class="row mb-5"  id="checkout-form">
 		            <div class="col-md-12">
-		              <h2 class="h3 mb-3 text-black">Coupon Code</h2>
-		              <div class="p-3 p-lg-5 border bg-white">
+		              <h2 class="h3 mb-3 text-black">Cupom</h2>
+		              <div class="p-3 p-lg-5 border">
 
-		                <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+		                <label for="c_code" class="text-black mb-3">Insira aqui seu código de cupom</label>
 		                <div class="input-group w-75 couponcode-wrap">
-		                  <input type="text" class="form-control me-2" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
+		                  <input type="text" class="form-control me-2" id="c_code" placeholder="Cupom" aria-label="Coupon Code" aria-describedby="button-addon2">
 		                  <div class="input-group-append">
-		                    <button class="btn btn-black btn-sm" type="button" id="button-addon2">Apply</button>
+		                    <button class="btn btn-black btn-sm" type="button" id="button-addon2">Aplicar</button>
 		                  </div>
 		                </div>
 
@@ -263,52 +194,96 @@
 		            </div>
 		          </div>
 
-		          <div class="row mb-5">
+		          <div class="row mb-5"  id="checkout-form">
 		            <div class="col-md-12">
-		              <h2 class="h3 mb-3 text-black">Your Order</h2>
-		              <div class="p-3 p-lg-5 border bg-white">
+		              <h2 class="h3 mb-3 text-black">Seu pedido</h2>
+		              <div class="p-3 p-lg-5 border">
 		                <table class="table site-block-order-table mb-5">
 		                  <thead>
-		                    <th>Product</th>
+		                    <th>Produto</th>
 		                    <th>Total</th>
 		                  </thead>
 		                  <tbody>
 		                    <tr>
-		                      <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-		                      <td>$250.00</td>
+		                      <td>Produto <strong class="mx-2">x</strong> 1</td>
+		                      <td>$00.00</td>
 		                    </tr>
 		                    <tr>
 		                      <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
 		                      <td>$100.00</td>
 		                    </tr>
 		                    <tr>
-		                      <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+		                      <td class="text-black font-weight-bold"><strong>Subtotal do carrinho</strong></td>
 		                      <td class="text-black">$350.00</td>
 		                    </tr>
 		                    <tr>
-		                      <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+		                      <td class="text-black font-weight-bold"><strong>Total do pedido</strong></td>
 		                      <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
 		                    </tr>
 		                  </tbody>
 		                </table>
 
 		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
+		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Pix</a></h3>
 
 		                  <div class="collapse" id="collapsebank">
 		                    <div class="py-2">
-		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+		                      <p class="mb-0">Continue a compra para ver as informações de pagamento</p>
 		                    </div>
 		                  </div>
 		                </div>
 
 		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
+		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cartão de crédito</a></h3>
 
 		                  <div class="collapse" id="collapsecheque">
 		                    <div class="py-2">
-		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+		                      <p class="mb-0">Parcele seu pedido em até 2x sem juros, e em até 6x com juros.</p>
 		                    </div>
+							<div class="form-group row">
+								<div class="col-md-6">
+								  <label for="c_fname" class="text-black">Número do cartão <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_fname" name="c_fname">
+								</div>
+								<div class="col-md-6">
+								  <label for="c_lname" class="text-black">Nome completo do títular <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_lname" name="c_lname">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-6">
+								  <label for="c_fname" class="text-black">Data de vencimento <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_fname" name="c_fname">
+								</div>
+								<div class="col-md-6">
+								  <label for="c_lname" class="text-black">CVV <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_lname" name="c_lname">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-6">
+								  <label for="c_fname" class="text-black">CPF/CNPJ do titular <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_fname" name="c_fname">
+								</div>
+								<div class="col-md-6">
+								  <label for="c_lname" class="text-black">Telefone <span class="text-danger">*</span></label>
+								  <input type="text" class="form-control" id="c_lname" name="c_lname">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-12">
+									<label for="estado" class="text-black">Quantidade de parcelas <span class="text-danger">*</span></label>
+									<select id="estado" class="form-control">
+									  <option value="1">1x de R$00,00 sem juros (R$00,00)</option>
+									  <option value="2">2x de R$00,00 sem juros (R$00,00)</option>
+									  <option value="3">3x de R$00,00 com juros (R$00,00)</option>
+									  <option value="4">4x de R$00,00 com juros (R$00,00)</option>
+									  <option value="5">5x de R$00,00 com juros (R$00,00)</option>
+									  <option value="6">6x de R$00,00 com juros (R$00,00)</option>
+								  
+								</div>
+							</div>
+							  
 		                  </div>
 		                </div>
 
@@ -317,7 +292,7 @@
 
 		                  <div class="collapse" id="collapsepaypal">
 		                    <div class="py-2">
-		                      <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+		                      <p class="mb-0">Por favor envie o comprovante de pagamento através do nosso e-mail de contato, juntamente com o ID de seu pedido.</p>
 		                    </div>
 		                  </div>
 		                </div>
@@ -347,7 +322,9 @@
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
 						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e encantamento através de nossos produtos. 
+							Cada peça é cuidadosamente feita à mão com materiais de alta qualidade, garantindo não apenas beleza, mas também durabilidade. 
+							Valorizamos a exclusividade, por isso oferecemos designs únicos e a possibilidade de personalização, tornando cada amigurumi especial e significativo.</p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -361,36 +338,28 @@
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Contact us</a></li>
+									<li><a href="#">Sobre nós</a></li>
+									<li><a href="#">Contato</a></li>
+									<li><a href="#">Suporte</a></li>
 								</ul>
 							</div>
 
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
+									<li><a href="#">Nosso time</a></li>
+									<li><a href="#">Termos e condições</a></li>
+									<li><a href="#">Política de privacidade</a></li>
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
+              				<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Animes</a></li>
+									<li><a href="#">Comidas</a></li>
+									<li><a href="#">Objetos</a></li>
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 
@@ -399,17 +368,9 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Todos os direitos reservados. &mdash; Feito por Júlia, Laura e Lucas</p>
             </p>
 						</div>
-
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
 					</div>
 				</div>
 
