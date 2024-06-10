@@ -1,21 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-:root{
+:root {
   --light-beige: #ede0d4; /*background*/
-  --medium-beige: #e6ccb2; 
-  --sand-beige: #ddb892; 
+  --medium-beige: #e6ccb2;
+  --sand-beige: #ddb892;
   --light-brown: #b08968; /*barrinha da navbar*/
-  --medium-brown: #7F5539; /*navbar - hero*/
-  --dark-brown: #9C6644;
+  --medium-brown: #7f5539; /*navbar - hero*/
+  --dark-brown: #9c6644;
 
-  --cream: #FFE5D9;
-  --salmon: #FFB4A2;
+  --cream: #fdffe2;
+  --pink-light: #ffe5d9
+  
+  --salmon: #ffb4a2;
   --light-salmon: #fff4f0;
-  --pink: #F4ACB7;
-  --light-pink: #FFCAD4;
+  --pink: #f4acb7;
+  --light-pink: #ffcad4;
   --grayish-pink: #c5939d;
-  --gray: #9D8189;
-
+  --gray: #9d8189;
 }
 body {
   overflow-x: hidden;
@@ -70,7 +71,7 @@ a.more {
 }
 .custom-navbar .custom-navbar-nav li a {
   font-weight: 500;
-  color: #fff !important;
+  color: #fdffe2 !important;
   opacity: 0.5;
   transition: 0.3s all ease;
   position: relative;
@@ -143,7 +144,7 @@ a.more {
 }
 .hero h1 {
   font-weight: 700;
-  color: #fff;
+  color: #fdffe2;
   margin-bottom: 30px;
 }
 @media (min-width: 1400px) {
@@ -207,12 +208,12 @@ a.more {
   font-weight: 600;
   padding: 12px 30px;
   border-radius: 30px;
-  color: #fff;
+  color: #fdffe2;
   background: #2f2f2f;
   border-color: #2f2f2f;
 }
 .btn:hover {
-  color: #fff;
+  color: #fdffe2;
   background: #222;
   border-color: #222;
 }
@@ -226,8 +227,8 @@ a.more {
   border-color: var(--grayish-pink);
 }
 .btn.btn-primary:hover {
-  background: #B5838D;
-  border-color: #B5838D;
+  background: #b5838d;
+  border-color: #b5838d;
 }
 .btn.btn-secondary {
   color: #2f2f2f;
@@ -235,8 +236,8 @@ a.more {
   border-color: var(--grayish-pink);
 }
 .btn.btn-secondary:hover {
-  background: #B5838D;
-  border-color: #B5838D;
+  background: #b5838d;
+  border-color: #b5838d;
 }
 .btn.btn-white-outline {
   background: transparent;
@@ -245,7 +246,7 @@ a.more {
 }
 .btn.btn-white-outline:hover {
   border-color: rgba(255, 255, 255, 1);
-  color: #fff;
+  color: #fdffe2;
 }
 .section-title {
   color: #2f2f2f;
@@ -307,7 +308,7 @@ a.more {
   right: 0;
   position: absolute;
   content: "";
-  background: #dce5e4;
+  background: var(--medium-beige);
   height: 0%;
   z-index: -1;
   border-radius: 10px;
@@ -520,13 +521,13 @@ a.more {
   height: 58px;
   line-height: 58px;
   border-radius: 50%;
-  background: rgba(59, 93, 80, 0.1);
+  background: var(--light-pink);
   color: #2f2f2f;
   transition: 0.3s all ease;
 }
 .testimonial-slider-wrap #testimonial-nav > span:hover {
-  background: #3b5d50;
-  color: #fff;
+  background: var(--light-pink);
+  color: #fdffe2;
 }
 .testimonial-slider-wrap #testimonial-nav .prev {
   left: -10px;
@@ -570,14 +571,17 @@ a.more {
 }
 .testimonial-slider-wrap .tns-nav button:hover:before,
 .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
-  background-color: #3b5d50;
+  background-color: var(--light-pink);
+}
+#checkout-form {
+  background-color: var(--cream);
 }
 .before-footer-section {
   padding: 7rem 0 12rem 0 !important;
 }
 .footer-section {
   padding: 80px 0;
-  background: #fff;
+  background: var(--pink);
 }
 .footer-section .relative {
   position: relative;
@@ -605,7 +609,7 @@ a.more {
 .footer-section .subscription-form h3 {
   font-size: 18px;
   font-weight: 500;
-  color: #3b5d50;
+  color: var(--light-pink);
 }
 .footer-section .subscription-form .form-control {
   height: 50px;
@@ -616,7 +620,7 @@ a.more {
 .footer-section .subscription-form .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #3b5d50;
+  border-color: var(--light-pink);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .footer-section .subscription-form .form-control::-webkit-input-placeholder {
@@ -658,7 +662,7 @@ a.more {
   font-size: 32px;
   font-weight: 500;
   text-decoration: none;
-  color: #3b5d50;
+  color: var(--pink);
 }
 .footer-section .custom-social li {
   margin: 2px;
@@ -670,13 +674,13 @@ a.more {
   text-align: center;
   line-height: 40px;
   display: inline-block;
-  background: #dce5e4;
-  color: #3b5d50;
+  background: #e5dce4;
+  color: var(--pink);
   border-radius: 50%;
 }
 .footer-section .custom-social li a:hover {
-  background: #3b5d50;
-  color: #fff;
+  background: var(--light-pink);
+  color: #fdffe2;
 }
 .footer-section .border-top {
   border-color: #dce5e4;
@@ -691,13 +695,18 @@ a.more {
   height: 50px;
   border-radius: 10px;
   font-family: "Inter", sans-serif;
+  background-color: var(--cream);
 }
 .form-control:active,
 .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #3b5d50;
+  border-color: var(--light-pink);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--cream);
+}
+input:-webkit-autofill:active {
+  background-color: var(--cream) !important;
 }
 .form-control::-webkit-input-placeholder {
   font-size: 14px;
@@ -720,9 +729,9 @@ a.more {
   height: 50px;
   line-height: 50px;
   text-align: center;
-  background: #3b5d50;
+  background: var(--light-pink);
   margin-right: 20px;
-  color: #fff;
+  color: #fdffe2;
 }
 textarea {
   height: auto !important;
@@ -751,7 +760,7 @@ textarea {
   color: rgba(0, 0, 0, 0.8);
 }
 .site-blocks-table tbody tr:first-child td {
-  border-top: 1px solid #3b5d50 !important;
+  border-top: 1px solid var(--light-pink) !important;
 }
 .site-blocks-table .btn {
   background: none !important;
@@ -771,11 +780,11 @@ textarea {
   border-radius: 10px !important;
 }
 .text-primary {
-  color: #3b5d50 !important;
+  color: var(--light-pink) !important;
 }
 .thankyou-icon {
   position: relative;
-  color: #3b5d50;
+  color: var(--light-pink);
 }
 .thankyou-icon:before {
   position: absolute;
@@ -784,4 +793,9 @@ textarea {
   height: 50px;
   border-radius: 50%;
   background: rgba(59, 93, 80, 0.2);
+}
+
+.subtitle {
+  font-weight: 400;
+  color: #fdffe2 !important;
 }
