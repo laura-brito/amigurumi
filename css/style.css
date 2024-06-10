@@ -638,15 +638,6 @@ a.more {
 .footer-section .subscription-form .btn {
   border-radius: 10px !important;
 }
-.footer-section .sofa-img {
-  position: absolute;
-  top: -200px;
-  z-index: 1;
-  right: 0;
-}
-.footer-section .sofa-img img {
-  max-width: 380px;
-}
 .footer-section .links-wrap {
   margin-top: 0px;
 }
@@ -798,4 +789,8 @@ textarea {
 .subtitle {
   font-weight: 400;
   color: #fdffe2 !important;
+}
+
+.unstyled-link{
+  text-decoration: none;
 }
