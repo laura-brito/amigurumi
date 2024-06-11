@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Untree.co">
+	<meta name="author" content="Julia, Laura e Lucas">
 	<link rel="shortcut icon" href="favicon.png">
 
 	<meta name="description" content="" />
@@ -13,7 +13,6 @@
 	<!-- Bootstrap CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link href="css/tiny-slider.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<title>Nana - checkout</title>
 </head>
@@ -21,30 +20,29 @@
 <body>
 
 	<!-- Start Header/Navigation -->
-	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark">
 
 		<div class="container">
 			<a href="index.html">
 				<img src="images/logo.svg" style="width: 115px;">
 			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-				aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsNana"
+				aria-controls="navbarsNana" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="navbarsFurni">
+			<div class="collapse navbar-collapse" id="navbarsNana">
 				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 					<li class="nav-item ">
 						<a class="nav-link" href="index.html">Início</a>
 					</li>
 					<li><a class="nav-link" href="shop.html">Loja</a></li>
 					<li><a class="nav-link" href="about.html">Sobre nós</a></li>
-					<li><a class="nav-link" href="services.html">Serviços</a></li>
 					<li><a class="nav-link" href="contact.html">Contato</a></li>
 				</ul>
 
 				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-					<li><a class="nav-link" href="register.html"><img src="images/user.svg"></a></li>
+					<li><a class="nav-link" href="login.html"><img src="images/user.svg"></a></li>
 					<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
 				</ul>
 			</div>
@@ -61,9 +59,6 @@
 					<div class="intro-excerpt">
 						<h1>Checkout</h1>
 					</div>
-				</div>
-				<div class="col-lg-7">
-
 				</div>
 			</div>
 		</div>
@@ -128,12 +123,6 @@
 							</div>
 						</div>
 
-						<div class="form-group row">
-							<div class="col-md-12">
-								<label for="c_companyname" class="text-black">Nome fantasia </label>
-								<input type="text" class="form-control" id="c_companyname" name="c_companyname">
-							</div>
-						</div>
 
 						<div class="form-group row">
 							<div class="col-md-12">
@@ -174,7 +163,7 @@
 										cadastro em nosso site, faça login na opção no início da página.</p>
 									<div class="form-group">
 										<label for="c_account_password" class="text-black">Senha</label>
-										<input type="email" class="form-control" id="c_account_password"
+										<input type="password" class="form-control" id="c_account_password"
 											name="c_account_password" placeholder="">
 									</div>
 								</div>
@@ -253,14 +242,17 @@
 									</div>
 								</div>
 
+
 								<div class="border p-3 mb-3">
-									<h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse"
+									<h3 class="h6 mb-0">
+										<a class="d-block" data-bs-toggle="collapse"
 											href="#collapsecheque" role="button" aria-expanded="false"
-											aria-controls="collapsecheque">Cartão de crédito</a></h3>
+											aria-controls="collapsecheque">Cartão de crédito</a>
+										</h3>
 
 									<div class="collapse" id="collapsecheque">
 										<div class="py-2">
-											<p class="mb-0">Parcele seu pedido em até 2x sem juros, e em até 6x com
+											<p class="mb-0">Parcele seu pedido em até 5x sem
 												juros.</p>
 										</div>
 										<div class="form-group row">
@@ -301,27 +293,30 @@
 										</div>
 										<div class="form-group row">
 											<div class="col-md-12">
-												<label for="estado" class="text-black">Quantidade de parcelas <span
+												<label for="card-amount" class="text-black">Quantidade de parcelas <span
 														class="text-danger">*</span></label>
-												<select id="estado" class="form-control">
-													<option value="1">1x de R$00,00 sem juros (R$00,00)</option>
-													<option value="2">2x de R$00,00 sem juros (R$00,00)</option>
-													<option value="3">3x de R$00,00 com juros (R$00,00)</option>
-													<option value="4">4x de R$00,00 com juros (R$00,00)</option>
-													<option value="5">5x de R$00,00 com juros (R$00,00)</option>
-													<option value="6">6x de R$00,00 com juros (R$00,00)</option>
-
+												<select id="card-amount" class="form-control">
+													<option value="1">1x de R$259,89 sem juros (R$259,89)</option>
+													<option value="2">2x de R$129,94 sem juros (R$259,89)</option>
+													<option value="3">3x de R$86,63 sem juros (R$259,89)</option>
+													<option value="4">4x de R$64,97 sem juros (R$259,89)</option>
+													<option value="5">5x de R$51,98 sem juros (R$259,89)</option>
+													<option value="6">6x de R$48,92 com juros (R$271,43)</option>
+												</select>
 											</div>
 										</div>
 
 									</div>
-								</div>
 
-								<div class="form-group row">
-									<button class="btn btn-black btn-lg py-3 btn-block"
-										onclick="window.location='thankyou.html'">Place Order</button>
 								</div>
-
+								<div class="input-group-append">
+									<button class="btn btn-black btn-sm" type="button"
+										id="button-addon2">
+										<a href="thankyou.html" class="text-cart">
+											Finalizar compra
+										</a>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -331,8 +326,6 @@
 		</div>
 	</div>
 
-
-	<!-- Start Footer Section -->
 	<footer class="footer-section">
 		<div class="container relative">
 
@@ -396,10 +389,7 @@
 
 		</div>
 	</footer>
-	<!-- End Footer Section -->
-
 	<script src="js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
