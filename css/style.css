@@ -182,8 +182,8 @@ a.more {
 }
 @media (min-width: 1200px) {
   .hero .hero-img-wrap img {
-    left: 0px;
-    top: -80px;
+    left: 150px;
+    top: 195px;
     right: -100px;
   }
 }
@@ -696,4 +696,9 @@ textarea {
   font-weight: 500;
   color: #2f2f2f;
   text-wrap: balance !important;
+}
+
+.text-cart{
+  color: var(--cream);
+  text-decoration: none;
 }
