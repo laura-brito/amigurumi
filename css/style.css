@@ -187,7 +187,7 @@ a.more {
 @media (min-width: 1200px) {
   .hero .hero-img-wrap img {
     left: 150px;
-    top: 195px;
+    top: 165px;
     right: -100px;
   }
 }
@@ -705,4 +705,10 @@ textarea {
 .text-cart{
   color: var(--cream);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .search-bar{
+    padding-bottom: 18px;
+  }
 }
