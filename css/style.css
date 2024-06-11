@@ -118,6 +118,10 @@ a.more {
 .custom-navbar .custom-navbar-cta li:first-child {
   margin-right: 20px;
 }
+#search{
+  background-color: var(--light-pink);
+
+}
 .hero {
   background: var(--pink);
   padding: calc(4rem - 30px) 0 0rem 0;
