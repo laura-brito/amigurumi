@@ -1,72 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/home.css">
 
-<!-- Começo navbar -->
-<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Nana navigation bar">
-
-    <div class="container">
-        <a href="index.html">
-            <img src="images/logo.svg" style="width: 115px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsNana"
-            aria-controls="navbarsNana" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsNana">
-            <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Início</a>
-                </li>
-                <li><a class="nav-link" href="shop.html">Loja</a></li>
-                <li><a class="nav-link" href="about.html">Sobre nós</a></li>
-                <li><a class="nav-link" href="contact.html">Contato</a></li>
-            </ul>
-
-            <form class="d-flex search-bar" role="search">
-                <input class="form-control me-2" id="search" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search-heart"></i></button>
-            </form>
-
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="login.html"><img src="images/user.svg"></a></li>
-                <li><a class="nav-link position-relative" href="cart.html"><img src="images/cart.svg">
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">2
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Fim navbar -->
-
-<!-- Começo hero -->
-
-<div class="hero">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-5">
-                <div class="intro-excerpt">
-                    <h1>Amiguinhos <span clsas="d-block">feitos com carinho.</span></h1>
-                    <p class="mb-4 subtitle">Nossos amigurumis são feitos com muito amor e carinho por nossas mãos.
-                        Temos um catálogo fixo mas também atendemos sob demanda. Conheça o mundo Nana Amigurumi.
-                    </p>
-                    <p><a href="shop.html" class="btn btn-secondary me-2">Compre agora</a><a href="shop.html"
-                            class="btn btn-white-outline">Explorar</a></p>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <div class="hero-img-wrap">
-                    <img src="images/gatinho.png" width="68%">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Fim hero -->
+<?php require './template/hero.php' ?>
 
 <!-- Começo sobre produtos -->
 
@@ -80,18 +14,19 @@
                 <p><a href="shop.html" class="btn">Explorar</a></p>
             </div>
             <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <img src="images/knitting.png" class="img-fluid product-thumbnail"
-                    style="width: 180px; padding-bottom: 10px">
+                <img src="<?php echo BASE_URL; ?>assets/images/knitting.png"
+                    class="img-fluid product-thumbnail about-images">
+
                 <h3 class="product-title">Produtos feitos com amor</h3>
             </div>
             <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <img src="images/present.png" class="img-fluid product-thumbnail"
-                    style="width: 180px; padding-bottom: 10px;">
+                <img src="<?php echo BASE_URL; ?>assets/images/present.png"
+                    class="img-fluid product-thumbnail about-images">
                 <h3 class="product-title ">Embalados com carinho</h3>
             </div>
             <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <img src="images/delivery-location.png" class="img-fluid product-thumbnail"
-                    style="width: 180px; padding-bottom: 10px">
+                <img src="<?php echo BASE_URL; ?>assets/images/delivery-location.png"
+                    class="img-fluid product-thumbnail about-images">
                 <h3 class="product-title">Para o conforto do seu lar</h3>
             </div>
         </div>
@@ -99,144 +34,4 @@
 </div>
 
 <!-- Fim sobre produtos -->
-
-<!-- Começo por que nos escolher -->
-
-<div class="why-choose-section">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-6">
-                <h2 class="section-title">Porque nos escolher</h2>
-                <p>Escolha nossa loja para seus amigurumis, temos ótima qualidade, designs únicos e personalizados,
-                    além de um atendimento que você vai amar!</p>
-
-                <div class="row my-5">
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="images/truck.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Entrega Rápida</h3>
-                            <p>Receba seus amigurumis em tempo recorde! Trabalhamos com eficiência para garantir que
-                                seu pedido chegue o mais rápido possível.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="images/bag.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Frete Grátis</h3>
-                            <p>Aproveite o frete grátis em todas as suas compras. Compre com tranquilidade, sem se
-                                preocupar com custos adicionais.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="images/support.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Plataformas de Suporte</h3>
-                            <p>Oferecemos suporte ao cliente em várias plataformas, incluindo chat, e-mail e redes
-                                sociais, para que você tenha ajuda sempre que precisar.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="images/return.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Fácil de Comprar</h3>
-                            <p>Nossa loja é intuitiva e fácil de navegar, proporcionando uma experiência de compra
-                                simples e agradável.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-lg-5">
-                <div class="img-wrap">
-                    <img src="images/rabbits.jpeg" alt="Image" class="img-fluid">
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- Fim por que nos escolher -->
-
-<!-- Começo footer -->
-
-<footer class="footer-section">
-    <div class="container relative">
-
-        <div class="row g-5 mb-5">
-            <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap">
-
-                    <a href="index.html">
-                        <img src="images/logo.svg" style="width: 115px;">
-                    </a>
-                </div>
-                <p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e encantamento
-                    através de nossos produtos.
-                    Cada peça é cuidadosamente feita à mão com materiais de alta qualidade, garantindo não apenas
-                    beleza, mas também durabilidade.
-                    Valorizamos a exclusividade, por isso oferecemos designs únicos e a possibilidade de
-                    personalização, tornando cada amigurumi especial e significativo.</p>
-
-                <ul class="list-unstyled custom-social">
-                    <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-8">
-                <div class="row links-wrap">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="about.html">Sobre nós</a></li>
-                            <li><a href="contact.html">Contato</a></li>
-                            <li><a href="contact.html">Suporte</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="about.html">Nosso time</a></li>
-                            <li><a href="#">Termos e condições</a></li>
-                            <li><a href="#">Política de privacidade</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="border-top copyright">
-            <div class="row pt-4">
-                <div class="col-lg-6">
-                    <p class="mb-2 text-center text-lg-start">Copyright &copy;
-                        <script>
-                        document.write(new Date().getFullYear());
-                        </script>. Todos os direitos reservados.
-                        &mdash; Feito por Júlia, Laura e Lucas
-                    </p>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Fim footer -->
-
-</>
+<?php require './template/why-choose-us.php' ?>
