@@ -26,7 +26,7 @@
         <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Nana navigation bar">
 
             <div class="container">
-                <a href="index.html">
+                <a href="<?php echo BASE_URL; ?>home">
                     <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" alt="Amigurumi" width="115px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsNana"
@@ -52,7 +52,8 @@
                     </form>
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                        <li><a class="nav-link" href="login.html"><img
+
+                        <li><a class="nav-link pointer" data-bs-toggle="modal" data-bs-target="#exampleModal"><img
                                     src="<?php echo BASE_URL; ?>assets/images/user.svg"></a>
                         </li>
                         <li><a class="nav-link position-relative" href="cart.html"><img
@@ -128,7 +129,7 @@
                     <div class="col-lg-6">
                         <p class="mb-2 text-center text-lg-start">Copyright &copy;
                             <script>
-                            document.write(new Date().getFullYear());
+                                document.write(new Date().getFullYear());
                             </script>. Todos os direitos reservados.
                             &mdash; Feito por Laura Brito Lisboa
                         </p>
@@ -141,8 +142,131 @@
 
     <!-- Fim footer -->
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
-    <!-- <script src="<?php echo BASE_URL; ?>assets/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Modal -->
+    <div class="modal fade p-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="p-5">
+                                <div class="text-center pb-5">
+                                    <i class="bi bi-person-circle" style="font-size: 80px;"></i>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group pb-2">
+                                        <input type="email" class="form-control form-control-user"
+                                            id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+                                    </div>
+                                    <div class="form-group pb-2">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Lembrar-se de
+                                                mim</label>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="index.html" class="btn btn-sm btn-outline-black">
+                                            Login
+                                        </a>
+                                    </div>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small pointer" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal2">Criar uma
+                                        conta!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Cadastro de novo cliente</h1>
+                                    <p class="text-gray-300">Campos marcados com * são de preenchimento
+                                        obrigatório
+                                    </p>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group row pb-2">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <label for="name" class="form-label">Nome Completo*</label>
+                                            <input type="text" class="form-control form-control-user" id="name"
+                                                placeholder="">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group pb-2">
+                                        <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                            <label for="email" class="form-label">Email*</label>
+
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group pb-2">
+                                        <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                            <label for="cpf" class="form-label">CPF*</label>
+
+                                            <input type="text" class="form-control form-control-user" id="cpf">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row pb-4">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <label for="password" class="form-label">Senha*</label>
+                                            <input type="password" id="password" class="form-control form-control-user"
+                                                aria-describedby="passwordHelpBlock">
+                                            <div id="passwordHelpBlock" class="form-text">
+                                                Sua senha precisa ser entre 8-20 caracteres
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="login.html" class="btn btn-sm btn-outline-black">
+                                            Cadastrar
+                                        </a>
+                                    </div>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">Já
+                                        tem uma
+                                        conta?
+                                        Faça seu login!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 
 </body>
 
