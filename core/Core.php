@@ -16,13 +16,15 @@ class Core
 		// Login
 		$router->addRoute('/login', array(new loginController(), 'index'));
 
+		// Person
+		$router->addRoute('/person/register_action', array(new personController(), 'register_action'));
 
-		// Register
-		$router->addRoute('/register', array(new registerController(), 'index'));
-		$router->addRoute('/pessoa/adicionar', array(new pessoaController(), 'adicionar'));
-		$router->addRoute('/pessoa/add_action', array(new pessoaController(), 'add_action'));
-		$router->addRoute('/pessoa/editar', array(new pessoaController(), 'editar'));
-		$router->addRoute('/pessoa/edit_action', array(new pessoaController(), 'edit_action'));
+		// About
+		// $router->addRoute('/about', array(new aboutController(), 'index'));
+
+		// $router->addRoute('/pessoa/add_action', array(new personController(), 'add_action'));
+		// $router->addRoute('/pessoa/editar', array(new personController(), 'editar'));
+		// $router->addRoute('/pessoa/edit_action', array(new personController(), 'edit_action'));
 
 		//lidando com a requisição
 		$route = isset($_GET['route']) ? '/' . $_GET['route'] : '/';

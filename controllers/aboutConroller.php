@@ -1,5 +1,5 @@
 <?php
-class registerController extends controller
+class aboutController extends controller
 {
 
     private $dados;
@@ -12,7 +12,7 @@ class registerController extends controller
 
     public function index()
     {
-        $this->loadTemplate('register', $this->dados);
+        $this->loadTemplate('about', $this->dados);
     }
 
 }

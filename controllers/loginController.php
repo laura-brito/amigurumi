@@ -19,5 +19,4 @@ class loginController extends controller
 	{
 		echo 'o usuário fez logout';
 	}
-
 }

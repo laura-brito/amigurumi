@@ -37,11 +37,11 @@
                 <div class="collapse navbar-collapse" id="navbarsNana">
                     <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>home">Início</a>
                         </li>
-                        <li><a class="nav-link" href="shop.html">Loja</a></li>
-                        <li><a class="nav-link" href="about.html">Sobre nós</a></li>
-                        <li><a class="nav-link" href="contact.html">Contato</a></li>
+                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>shop">Loja</a></li>
+                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>about">Sobre nós</a></li>
+                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>contact">Contato</a></li>
                     </ul>
 
                     <form class="d-flex search-bar" role="search">
@@ -156,7 +156,7 @@
                                 <div class="text-center pb-5">
                                     <i class="bi bi-person-circle" style="font-size: 80px;"></i>
                                 </div>
-                                <form class="user">
+                                <form class="user" method="post" action="<?php echo BASE_URL; ?>login/login_action">
                                     <div class="form-group pb-2">
                                         <input type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
@@ -173,9 +173,9 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <a href="index.html" class="btn btn-sm btn-outline-black">
+                                        <button type="submit" class="btn btn-sm btn-outline-black">
                                             Login
-                                        </a>
+                                        </button>
                                     </div>
                                 </form>
                                 <hr>
@@ -208,12 +208,12 @@
                                         obrigatório
                                     </p>
                                 </div>
-                                <form class="user">
+                                <form class="user" action="<?php echo BASE_URL; ?>person/register_action" method="post">
                                     <div class="form-group row pb-2">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
                                             <label for="name" class="form-label">Nome Completo*</label>
                                             <input type="text" class="form-control form-control-user" id="name"
-                                                placeholder="">
+                                                name="name" placeholder="">
 
                                         </div>
                                     </div>
@@ -221,21 +221,23 @@
                                         <div class="col-sm-12 mb-3 mb-sm-0 ">
                                             <label for="email" class="form-label">Email*</label>
 
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail2">
+                                            <input type="email" class="form-control form-control-user" id="email"
+                                                name="email">
                                         </div>
                                     </div>
                                     <div class="form-group pb-2">
                                         <div class="col-sm-12 mb-3 mb-sm-0 ">
                                             <label for="cpf" class="form-label">CPF*</label>
 
-                                            <input type="text" class="form-control form-control-user" id="cpf">
+                                            <input type="text" class="form-control form-control-user" id="cpf"
+                                                name="cpf">
                                         </div>
                                     </div>
                                     <div class="form-group row pb-4">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
                                             <label for="password" class="form-label">Senha*</label>
-                                            <input type="password" id="password" class="form-control form-control-user"
+                                            <input type="password" id="password" name="password"
+                                                class="form-control form-control-user"
                                                 aria-describedby="passwordHelpBlock">
                                             <div id="passwordHelpBlock" class="form-text">
                                                 Sua senha precisa ser entre 8-20 caracteres
@@ -243,9 +245,9 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <a href="login.html" class="btn btn-sm btn-outline-black">
+                                        <button type="submit" class="btn btn-sm btn-outline-black pointer">
                                             Cadastrar
-                                        </a>
+                                        </button>
                                     </div>
                                 </form>
                                 <hr>
