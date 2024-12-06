@@ -14,7 +14,7 @@ class Core
 		$router->addRoute('/home', array(new homeController(), 'index'));
 
 		// Login
-		$router->addRoute('/login', array(new loginController(), 'index'));
+		$router->addRoute('/login', array(new loginController(), 'login_action'));
 
 		// Person
 		$router->addRoute('/person/register_action', array(new personController(), 'register_action'));

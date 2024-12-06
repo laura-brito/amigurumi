@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['person'])) {
+    $person = $_SESSION['person'];
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -53,8 +59,27 @@
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 
-                        <li><a class="nav-link pointer" data-bs-toggle="modal" data-bs-target="#exampleModal"><img
-                                    src="<?php echo BASE_URL; ?>assets/images/user.svg"></a>
+                        <?php if (isset($_SESSION['person']) && $isLoggedIn): ?>
+                            <div class="d-flex align-self-center">
+
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle link-light" style="text-decoration: none;" href="#"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Olá,
+                                        <strong><?php echo htmlspecialchars($_SESSION['person']['name']) ?></strong>
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                        <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
+                                        <hr>
+                                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <li><a class="nav-link pointer" data-bs-toggle="modal" data-bs-target="#loginModal"><img
+                                        src="<?php echo BASE_URL; ?>assets/images/user.svg"></a>
+                            <?php endif; ?>
                         </li>
                         <li><a class="nav-link position-relative" href="cart.html"><img
                                     src="<?php echo BASE_URL; ?>assets/images/cart.svg">
@@ -86,9 +111,11 @@
                             <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" style="width: 115px;">
                         </a>
                     </div>
-                    <p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e encantamento
+                    <p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e
+                        encantamento
                         através de nossos produtos.
-                        Cada peça é cuidadosamente feita à mão com materiais de alta qualidade, garantindo não apenas
+                        Cada peça é cuidadosamente feita à mão com materiais de alta qualidade, garantindo não
+                        apenas
                         beleza, mas também durabilidade.
                         Valorizamos a exclusividade, por isso oferecemos designs únicos e a possibilidade de
                         personalização, tornando cada amigurumi especial e significativo.</p>
@@ -143,7 +170,7 @@
     <!-- Fim footer -->
 
     <!-- Modal -->
-    <div class="modal fade p-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade p-0" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -156,14 +183,15 @@
                                 <div class="text-center pb-5">
                                     <i class="bi bi-person-circle" style="font-size: 80px;"></i>
                                 </div>
-                                <form class="user" method="post" action="<?php echo BASE_URL; ?>login/login_action">
+                                <form class="user" method="post" action="<?php echo BASE_URL; ?>login">
                                     <div class="form-group pb-2">
-                                        <input type="email" class="form-control form-control-user"
-                                            id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+                                        <input type="text" id="username" name="username"
+                                            class="form-control form-control-user" aria-describedby="emailHelp"
+                                            placeholder="Email ou CPF">
                                     </div>
                                     <div class="form-group pb-2">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Senha">
+                                        <input type="password" class="form-control form-control-user" id="password"
+                                            name="password" placeholder="Senha">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -181,7 +209,7 @@
                                 <hr>
                                 <div class="text-center">
                                     <a class="small pointer" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal2">Criar uma
+                                        data-bs-target="#registerModal">Criar uma
                                         conta!</a>
                                 </div>
                             </div>
@@ -192,7 +220,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -252,7 +280,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">Já
+                                    <a class="small pointer" data-bs-toggle="modal" data-bs-target="#loginModal">Já
                                         tem uma
                                         conta?
                                         Faça seu login!</a>

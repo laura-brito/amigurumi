@@ -112,13 +112,4 @@ class Person extends model
 		return $sql->rowCount() > 0;
 	}
 
-	public function authenticate($passwordToCheck)
-	{
-
-		if (password_verify($passwordToCheck, $this->password)) {
-			echo "Senha correta!";
-		} else {
-			echo "Senha incorreta!";
-		}
-	}
 }

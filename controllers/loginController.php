@@ -1,22 +1,36 @@
 <?php
+session_start();
 class loginController extends controller
 {
 
-	private $dados;
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->dados = array();
 	}
 
-	public function index()
+
+	public function login_action()
 	{
-		$this->loadTemplate('login', $this->dados);
+
+		$login = new Login();
+		$login->username = $_POST["username"];
+		$login->password = $_POST["password"];
+
+		$isLoggedIn = false;
+
+		if ($login->authenticate()) {
+			$isLoggedIn = true;
+		}
+
+		// header("Location: " . BASE_URL . "home");
+		$this->loadTemplate('home', ['isLoggedIn' => $isLoggedIn, 'error' => 'Login inválido.']);
+
+		exit;
 	}
 
 	public function logout()
 	{
-		echo 'o usuário fez logout';
+		$_SESSION['person'] = [];
 	}
 }

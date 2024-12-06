@@ -1,7 +1,6 @@
 <?php
 class personController extends controller
 {
-
 	private $dados;
 
 	public function __construct()
@@ -12,10 +11,6 @@ class personController extends controller
 
 	public function index()
 	{
-
-		// $person = new Person();
-		// $this->dados['person'] = $person->getAll();
-
 		$this->loadTemplate('pessoa', $this->dados);
 	}
 
@@ -25,11 +20,8 @@ class personController extends controller
 		$this->loadTemplate('pessoa_adicionar', $this->dados);
 	}
 
-
 	public function register_action()
 	{
-
-
 		ini_set('display_erros', 1);
 		error_reporting(E_ALL);
 
@@ -43,22 +35,11 @@ class personController extends controller
 		$password = $_POST['password'];
 		$cpf = $_POST['cpf'];
 
-		echo $name;
-		echo $email;
-		echo $password;
-		echo $cpf;
-
-		print_r($_POST);
-
 		if (empty($name) || empty($email) || empty($password) || empty($cpf)) {
 			http_response_code(response_code: 400);
-			echo 'Todos os campos sao obrigatórios.';
-
 			echo json_encode(['error' => 'Todos os campos são obrigatórios.']);
 			return;
 		}
-
-		echo 'chegou aqui';
 
 		$passwordHash = password_hash($password, PASSWORD_BCRYPT);
 		$person = new Person($name, $email, $cpf, $passwordHash);
@@ -71,7 +52,6 @@ class personController extends controller
 			return;
 		}
 
-
 		if (
 			$person->cpfExists()
 		) {
@@ -82,7 +62,6 @@ class personController extends controller
 
 
 		if ($person->addPerson()) {
-			echo 'Adicionou';
 			http_response_code(201);
 			echo json_encode(['message' => 'Cadastro registrado com sucesso.']);
 			header("Location: " . BASE_URL . "home");
@@ -132,5 +111,4 @@ class personController extends controller
 		header("Location: " . BASE_URL . 'pessoa');
 		exit;
 	}
-
 }
