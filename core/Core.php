@@ -8,13 +8,13 @@ class Core
 		$router = new Router();
 
 		//configurando as rotas
-		$router->addRoute('/', array(new homeController(), 'index'));
-
 		// Home
+		$router->addRoute('/', array(new homeController(), 'index'));
 		$router->addRoute('/home', array(new homeController(), 'index'));
 
 		// Login
 		$router->addRoute('/login', array(new loginController(), 'login_action'));
+		$router->addRoute('/logout', array(new loginController(), 'logout_action'));
 
 		// Person
 		$router->addRoute('/person/register_action', array(new personController(), 'register_action'));
@@ -22,6 +22,9 @@ class Core
 		// About
 		// $router->addRoute('/about', array(new aboutController(), 'index'));
 
+		// Contact
+		$router->addRoute('/contact', array(new contactController(), 'index'));
+		$router->addRoute('/send', array(new contactController(), 'send_email'));
 		// $router->addRoute('/pessoa/add_action', array(new personController(), 'add_action'));
 		// $router->addRoute('/pessoa/editar', array(new personController(), 'editar'));
 		// $router->addRoute('/pessoa/edit_action', array(new personController(), 'edit_action'));

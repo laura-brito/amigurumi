@@ -23,14 +23,18 @@ class loginController extends controller
 			$isLoggedIn = true;
 		}
 
-		// header("Location: " . BASE_URL . "home");
 		$this->loadTemplate('home', ['isLoggedIn' => $isLoggedIn, 'error' => 'Login inválido.']);
 
 		exit;
 	}
 
-	public function logout()
+	public function logout_action()
 	{
-		$_SESSION['person'] = [];
+		if (isset($_SESSION['person'])) {
+			unset($_SESSION['person']);
+			header("Location: " . BASE_URL . "home");
+		}
+
+		$this->loadTemplate('home', ['isLoggedIn' => false, 'error' => 'Login inválido.']);
 	}
 }

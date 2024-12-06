@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-	<form method="POST" action="<?php echo BASE_URL.'pessoa/edit_action?id='.$pessoa['id']; ?>">
+	<form method="POST" action="<?php echo BASE_URL . 'pessoa/edit_action?id=' . $pessoa['id']; ?>">
 		<div class="row">
 			<div class="col">
 				<label for="nome">Nome</label>
@@ -15,13 +15,15 @@
 			</div>
 			<div class="col">
 				<label for="telefone">Telefone</label>
-				<input type="text" name="telefone" required class="form-control" value="<?php echo $pessoa['telefone']; ?>">
+				<input type="text" name="telefone" required class="form-control"
+					value="<?php echo $pessoa['telefone']; ?>">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 				<label for="endereco">Endereço</label>
-				<input type="text" name="endereco" required class="form-control" value="<?php echo $pessoa['endereco']; ?>">
+				<input type="text" name="endereco" required class="form-control"
+					value="<?php echo $pessoa['endereco']; ?>">
 			</div>
 		</div>
 		<div class="row mb-3">
@@ -34,7 +36,7 @@
 				<input type="password" name="senha" class="form-control" value="<?php echo $pessoa['senha']; ?>">
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col">
 				<button type="submit" class="btn btn-primary">Salvar</button>

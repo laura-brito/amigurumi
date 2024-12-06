@@ -1,6 +1,6 @@
 <?php require './template/hero.php' ?>
 <?php require './template/why-choose-us.php' ?>
-<!-- Começo nosso time -->
+
 <div class="nana-section">
     <div class="container">
 
@@ -41,5 +41,3 @@
         </div>
     </div>
 </div>
-
-<!-- Fim nosso time -->

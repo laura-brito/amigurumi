@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['person'])) {
-    $person = $_SESSION['person'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -72,7 +69,7 @@ if (isset($_SESSION['person'])) {
                                         <li><a class="dropdown-item" href="#">Perfil</a></li>
                                         <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
                                         <hr>
-                                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                                        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Sair</a></li>
                                     </ul>
                                 </div>
                             </div>
