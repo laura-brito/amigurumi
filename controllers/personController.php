@@ -76,20 +76,6 @@ class personController extends controller
 		exit;
 	}
 
-	public function editar()
-	{
-
-		if (!isset($_GET['id']) || empty($_GET['id'])) {
-			header("Location: " . BASE_URL . "pessoa");
-			exit;
-		}
-
-		// $person = new Person();
-		// $this->dados['pessoa'] = $person->get($_GET['id']);
-
-		$this->loadTemplate('pessoa_editar', $this->dados);
-	}
-
 	public function edit_action()
 	{
 

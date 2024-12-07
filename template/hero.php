@@ -7,8 +7,8 @@
                     <p class="mb-4 subtitle">Nossos amigurumis são feitos com muito amor e carinho por nossas mãos.
                         Temos um catálogo fixo mas também atendemos sob demanda. Conheça o mundo Nana Amigurumi.
                     </p>
-                    <p><a href="shop.html" class="btn btn-secondary me-2">Compre agora</a><a href="shop.html"
-                            class="btn btn-white-outline">Explorar</a></p>
+                    <p><a href="shop.html" class="btn btn-secondary me-2">Compre agora</a><a
+                            class="btn btn-white-outline" onclick="scrollWindow()">Explorar</a></p>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -19,3 +19,5 @@
         </div>
     </div>
 </div>
+<script src="<?php echo BASE_URL; ?>assets/js/index.js">
+</script>

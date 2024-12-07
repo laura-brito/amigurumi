@@ -1,4 +1,4 @@
-<div class="why-choose-section">
+<div class="why-choose-section" id="why-choose-us">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-6">

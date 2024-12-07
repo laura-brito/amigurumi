@@ -20,11 +20,15 @@ class Core
 		$router->addRoute('/person/register_action', array(new personController(), 'register_action'));
 
 		// About
-		// $router->addRoute('/about', array(new aboutController(), 'index'));
+		$router->addRoute('/about', array(new aboutController(), 'index'));
 
 		// Contact
 		$router->addRoute('/contact', array(new contactController(), 'index'));
-		$router->addRoute('/send', array(new contactController(), 'send_email'));
+		$router->addRoute('/contact/send', array(new contactController(), 'send_email'));
+
+		// Shop
+		$router->addRoute('/shop', array(new shopController(), 'index'));
+		$router->addRoute('/shop/product-detail', array(new shopController(), 'detail'));
 		// $router->addRoute('/pessoa/add_action', array(new personController(), 'add_action'));
 		// $router->addRoute('/pessoa/editar', array(new personController(), 'editar'));
 		// $router->addRoute('/pessoa/edit_action', array(new personController(), 'edit_action'));

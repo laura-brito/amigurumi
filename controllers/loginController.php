@@ -25,7 +25,6 @@ class loginController extends controller
 
 		$this->loadTemplate('home', ['isLoggedIn' => $isLoggedIn, 'error' => 'Login inválido.']);
 
-		exit;
 	}
 
 	public function logout_action()

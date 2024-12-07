@@ -40,7 +40,7 @@
 						</div>
 					</div>
 
-					<form method="post" action="send">
+					<form method="post" action="contact/send">
 						<div class="row">
 							<div class="col-12">
 								<div class="form-group">

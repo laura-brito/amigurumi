@@ -25,14 +25,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($pessoa as $item): ?>
+					<?php foreach ($pessoa as $item): ?>
 						<tr>
 							<td><?php echo $item['nome']; ?></td>
 							<td><?php echo $item['telefone']; ?></td>
 							<td><?php echo $item['endereco']; ?></td>
 							<td><?php echo $item['email']; ?></td>
 							<td>
-								<a href="<?php echo BASE_URL.'pessoa/editar?id='.$item['id']; ?>" class="btn btn-warning">Editar</a>
+								<a href="<?php echo BASE_URL . 'pessoa/editar?id=' . $item['id']; ?>"
+									class="btn btn-warning">Editar</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
