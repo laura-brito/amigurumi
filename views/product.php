@@ -1,3 +1,5 @@
+<?php require './utils/util.php' ?>
+
 <div class="nana-section product-section before-footer-section bg-light">
     <div class="container">
         <section class="py-5">
@@ -14,7 +16,14 @@
                             <div class="carousel-inner">
 
                                 <div class="carousel-item active">
-                                    <img src="../images/amigurumis-produtos/gata-1.png" class="d-block w-100" alt="...">
+                                    <?php if ($product['featured'] == 1): ?>
+                                        <div class="badge bg-dark text-white position-absolute"
+                                            style="top: 0.5rem; right: 0.5rem">
+                                            Promoção</div>
+                                    <?php endif ?>
+                                    <img src="<?php echo BASE_URL . 'assets/images/products/' . $product['id'] . '-1.png'; ?>"
+                                        class="d-block w-100" alt="...">
+
                                 </div>
                                 <div class="carousel-item">
                                     <img src="../images/amigurumis-produtos/gata-2.png" class="d-block w-100" alt="...">
@@ -34,7 +43,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: AMIAMICAT</div>
+                        <div class="small mb-1">SKU: <?php echo $product['sku'] ?></div>
                         <div class="d-flex justify-content-start small text-warning mb-2">
                             <div class="bi-star-fill"></div>
                             <div class="bi-star-fill"></div>
@@ -42,22 +51,24 @@
                             <div class="bi-star-fill"></div>
                             <div class="bi-star-half"></div>
                         </div>
-                        <h1 class="display-5 fw-bolder">Amigurumi
-                            Gatinha</h1>
+                        <h1 class="display-5 fw-bolder"><?php echo htmlspecialchars($product['name']) ?></h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">R$159,99</span>
-                            <span>R$99,99</span>
+                            <?php if ($product['featured'] == 1): ?>
+                                <span class="text-decoration-line-through" style="font-size: 16px;">R$
+                                    <?php echo number_format($product['price'], 2, ',', '.') ?></span>
+                                <span>R$<?php echo calculatePercentage($product['price'], $product['featured_percentage']) ?></span>
+                            <?php else: ?>
+                                <span>R$<?php echo number_format($product['price'], 2, ',', '.') ?></span>
+                            <?php endif ?>
+
+
                         </div>
                         <div class="fs-5 mb-5">
-                            <p class="lead">A Amigurumi Gatinha esbanja
-                                delicadeza e charme. Confeccionada em
-                                pelúcia, com detalhes que são o toque
-                                final
-                                da nossa amiguinha.
+                            <p class="lead"><?php echo htmlspecialchars($product['description']) ?>
                             </p>
                         </div>
                         <div class="fs-10 mb-10">
-                            <span>Tamanho: 10cm</span>
+                            <span>Tamanho: <?php echo $product['size'] ?>cm</span>
                         </div>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"

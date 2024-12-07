@@ -14,12 +14,6 @@ class personController extends controller
 		$this->loadTemplate('pessoa', $this->dados);
 	}
 
-	public function adicionar()
-	{
-
-		$this->loadTemplate('pessoa_adicionar', $this->dados);
-	}
-
 	public function register_action()
 	{
 		ini_set('display_erros', 1);

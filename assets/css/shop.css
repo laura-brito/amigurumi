@@ -1,3 +1,7 @@
 .card img {
     object-fit: cover !important;
 }
+
+.card-body {
+    align-content: space-between !important;
+}

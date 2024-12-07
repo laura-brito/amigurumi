@@ -18,7 +18,7 @@ session_start();
     <meta name="keywords" content="amigurumi, croche" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/template.css">
-    <link href="<?php echo BASE_URL; ?>assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/style.css">
 
 </head>
 
@@ -26,69 +26,7 @@ session_start();
 
     <header>
         <!-- Começo navbar -->
-        <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Nana navigation bar">
-
-            <div class="container">
-                <a href="<?php echo BASE_URL; ?>home">
-                    <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" alt="Amigurumi" width="115px">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsNana"
-                    aria-controls="navbarsNana" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarsNana">
-                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?php echo BASE_URL; ?>home">Início</a>
-                        </li>
-                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>shop">Loja</a></li>
-                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>about">Sobre nós</a></li>
-                        <li><a class="nav-link" href="<?php echo BASE_URL; ?>contact">Contato</a></li>
-                    </ul>
-
-                    <form class="d-flex search-bar" role="search">
-                        <input class="form-control me-2" id="search" type="search" placeholder="Buscar"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit"><i
-                                class="bi bi-search-heart"></i></button>
-                    </form>
-
-                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-
-                        <?php if (isset($_SESSION['person']) && $isLoggedIn): ?>
-                            <div class="d-flex align-self-center">
-
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle link-light" style="text-decoration: none;" href="#"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Olá,
-                                        <strong><?php echo htmlspecialchars($_SESSION['person']['name']) ?></strong>
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                        <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
-                                        <hr>
-                                        <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Sair</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        <?php else: ?>
-                            <li><a class="nav-link pointer" data-bs-toggle="modal" data-bs-target="#loginModal"><img
-                                        src="<?php echo BASE_URL; ?>assets/images/user.svg"></a>
-                            <?php endif; ?>
-                        </li>
-                        <li><a class="nav-link position-relative" href="cart.html"><img
-                                    src="<?php echo BASE_URL; ?>assets/images/cart.svg">
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">2
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php require 'nav-bar.php' ?>
     </header>
 
     <main>
@@ -97,74 +35,7 @@ session_start();
 
     <!-- Começo footer -->
 
-    <footer class="footer-section">
-        <div class="container relative">
-
-            <div class="row g-5 mb-5">
-                <div class="col-lg-4">
-                    <div class="mb-4 footer-logo-wrap">
-
-                        <a href="index.html">
-                            <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" style="width: 115px;">
-                        </a>
-                    </div>
-                    <p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e
-                        encantamento
-                        através de nossos produtos.
-                        Cada peça é cuidadosamente feita à mão com materiais de alta qualidade, garantindo não
-                        apenas
-                        beleza, mas também durabilidade.
-                        Valorizamos a exclusividade, por isso oferecemos designs únicos e a possibilidade de
-                        personalização, tornando cada amigurumi especial e significativo.</p>
-
-                    <ul class="list-unstyled custom-social">
-                        <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                        <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                        <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-8">
-                    <div class="row links-wrap">
-                        <div class="col-6 col-sm-6 col-md-3">
-                            <ul class="list-unstyled">
-                                <li><a href="about.html">Sobre nós</a></li>
-                                <li><a href="contact.html">Contato</a></li>
-                                <li><a href="contact.html">Suporte</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-6 col-sm-6 col-md-3">
-                            <ul class="list-unstyled">
-                                <li><a href="about.html">Nosso time</a></li>
-                                <li><a href="#">Termos e condições</a></li>
-                                <li><a href="#">Política de privacidade</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="border-top copyright">
-                <div class="row pt-4">
-                    <div class="col-lg-6">
-                        <p class="mb-2 text-center text-lg-start">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>. Todos os direitos reservados.
-                            &mdash; Feito por Laura Brito Lisboa
-                        </p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Fim footer -->
+    <?php require 'footer.php' ?>
 
     <!-- Modal -->
     <div class="modal fade p-0" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">

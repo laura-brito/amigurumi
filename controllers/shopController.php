@@ -12,14 +12,29 @@ class shopController extends controller
     {
         $shop = new Product();
         $this->data['products'] = $shop->getAll();
-        // print_r($this->data['products']);
         $this->loadTemplate('shop', $this->data);
     }
-    public function detail()
+    public function product()
     {
         $id = $_GET['id'];
         $shop = new Product();
-        $product = $shop->getById($id);
-        $this->loadTemplate('shop', $product);
+        $this->data['product'] = $shop->getById($id);
+        $this->loadTemplate('product', $this->data);
+    }
+
+    public function cart()
+    {
+        // $id = $_GET['id'];
+        $shop = new Product();
+        // $this->data['product'] = $shop->getById($id);
+        $this->loadTemplate('cart', $this->data);
+    }
+
+    public function checkout()
+    {
+        // $id = $_GET['id'];
+        $shop = new Product();
+        // $this->data['product'] = $shop->getById($id);
+        $this->loadTemplate('checkout', $this->data);
     }
 }
