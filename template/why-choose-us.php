@@ -24,7 +24,7 @@
                                 <img src="<?php echo BASE_URL; ?>assets/images/bag.svg" alt="Image" class="imf-fluid">
                             </div>
                             <h3>Frete Grátis</h3>
-                            <p>Aproveite o frete grátis em todas as suas compras. Compre com tranquilidade, sem se
+                            <p>Aproveite o frete grátis na sua primeira compra. Compre com tranquilidade, sem se
                                 preocupar com custos adicionais.</p>
                         </div>
                     </div>

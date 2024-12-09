@@ -2,28 +2,25 @@
 class Person extends model
 {
 	public $name;
-	public $cpf;
 	public $email;
 	public $password;
 
-	public function __construct($name, $email, $cpf, $password)
+	public function __construct($name, $email, $password)
 	{
 		parent::__construct();
 		$this->name = $name;
 		$this->email = $email;
 		$this->password = $password;
-		$this->cpf = $cpf;
 	}
 
 	public function addPerson()
 	{
-		$sql = "INSERT INTO person(name, email, cpf, password)
-		        VALUES(:name, :email, :cpf, :password)";
+		$sql = "INSERT INTO person(name, email, password)
+		        VALUES(:name, :email, :password)";
 
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue('name', $this->name);
 		$sql->bindValue('email', $this->email);
-		$sql->bindValue('cpf', $this->cpf);
 		$sql->bindValue('password', $this->password);
 		return $sql->execute();
 	}
@@ -45,21 +42,6 @@ class Person extends model
 		$sql->bindValue('id', $modelo['id']);
 		$sql->execute();
 
-		if (!empty($modelo['senha'])) {
-			$this->password($modelo['id'], $modelo['senha']);
-		}
-	}
-
-	public function password($id, $senha)
-	{
-		$sql = "UPDATE tab_pessoa
-		           SET senha    = :senha
-		         WHERE id       = :id";
-
-		$sql = $this->db->prepare($sql);
-		$sql->bindValue(':senha', md5($senha));
-		$sql->bindValue(':id', $id);
-		$sql->execute();
 	}
 
 	public function getAll()
@@ -102,14 +84,6 @@ class Person extends model
 		$sql->execute();
 		return $sql->rowCount() > 0;
 
-	}
-
-	public function cpfExists()
-	{
-		$sql = $this->db->prepare("SELECT * FROM person WHERE cpf = :cpf");
-		$sql->bindValue(":cpf", $this->cpf);
-		$sql->execute();
-		return $sql->rowCount() > 0;
 	}
 
 }

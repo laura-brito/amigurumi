@@ -1,5 +1,3 @@
-<?php require './utils/util.php' ?>
-
 <div class="nana-section product-section before-footer-section bg-light">
     <div class="container">
         <section class="py-5">
@@ -42,6 +40,7 @@
                         </div>
                     </div>
 
+
                     <div class="col-md-6">
                         <div class="small mb-1">SKU: <?php echo $product['sku'] ?></div>
                         <div class="d-flex justify-content-start small text-warning mb-2">
@@ -52,16 +51,24 @@
                             <div class="bi-star-half"></div>
                         </div>
                         <h1 class="display-5 fw-bolder"><?php echo htmlspecialchars($product['name']) ?></h1>
+                        <div class="fs-5 mb-5 row">
+                            <div class="col-12">
+
+                                <?php if ($product['featured'] == 1): ?>
+                                    <span class="text-decoration-line-through" style="font-size: 16px;">R$
+                                        <?php echo number_format($product['price'], 2, ',', '.') ?></span>
+                                    <span>R$<?php echo calculatePercentage($product['price'], $product['featured_percentage']) ?></span>
+                                <?php else: ?>
+                                    <span>R$<?php echo number_format($product['price'], 2, ',', '.') ?></span>
+                                <?php endif ?>
+                            </div>
+                            <div class="col-12">
+
+                                <span style="font-size: 12px; color: grey;">5x de R$
+                                    <?php echo calculateQuota($product['price'], 5) ?></span>
+                            </div>
+                        </div>
                         <div class="fs-5 mb-5">
-                            <?php if ($product['featured'] == 1): ?>
-                                <span class="text-decoration-line-through" style="font-size: 16px;">R$
-                                    <?php echo number_format($product['price'], 2, ',', '.') ?></span>
-                                <span>R$<?php echo calculatePercentage($product['price'], $product['featured_percentage']) ?></span>
-                            <?php else: ?>
-                                <span>R$<?php echo number_format($product['price'], 2, ',', '.') ?></span>
-                            <?php endif ?>
-
-
                         </div>
                         <div class="fs-5 mb-5">
                             <p class="lead"><?php echo htmlspecialchars($product['description']) ?>
@@ -70,17 +77,25 @@
                         <div class="fs-10 mb-10">
                             <span>Tamanho: <?php echo $product['size'] ?>cm</span>
                         </div>
-                        <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
-                                style="max-width: 3rem" />
-                            <a class="text-cart" href="../cart.html">
-                                <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                    <i class="bi-cart-fill me-1"></i>
-                                    Adicionar ao carrinho
-                                </button>
-                            </a>
+                        <div style="padding-top: 10px;">
+                            <form action="<?php echo BASE_URL; ?>shop/cart/add" method="post" class="row">
+                                <input id="product_id" name="product_id" value="<?php echo $product['id'] ?>" hidden />
+                                <div class="col-3">
+                                    <input class="form-control text-center me-3" id="quantity" name="quantity"
+                                        type="num" value="1" style="max-width: 3rem" />
+                                </div>
+                                <div class="col-9">
+                                    <a class="text-cart">
+                                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                                            <i class="bi-cart-fill me-1"></i>
+                                            Adicionar ao carrinho
+                                        </button>
+                                    </a>
+                                </div>
+                            </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

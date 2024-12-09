@@ -55,7 +55,7 @@ session_start();
                                     <div class="form-group pb-2">
                                         <input type="text" id="username" name="username"
                                             class="form-control form-control-user" aria-describedby="emailHelp"
-                                            placeholder="Email ou CPF">
+                                            placeholder="E-mail">
                                     </div>
                                     <div class="form-group pb-2">
                                         <input type="password" class="form-control form-control-user" id="password"
@@ -100,14 +100,16 @@ session_start();
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Cadastro de novo cliente</h1>
-                                    <p class="text-gray-300">Campos marcados com * são de preenchimento
+                                    <p class="text-gray-300">Campos marcados com <span class="text-danger">*</span> são
+                                        de preenchimento
                                         obrigatório
                                     </p>
                                 </div>
                                 <form class="user" action="<?php echo BASE_URL; ?>person/register_action" method="post">
                                     <div class="form-group row pb-2">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <label for="name" class="form-label">Nome Completo*</label>
+                                            <label for="name" class="form-label">Nome Completo <span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" class="form-control form-control-user" id="name"
                                                 name="name" placeholder="">
 
@@ -115,23 +117,17 @@ session_start();
                                     </div>
                                     <div class="form-group pb-2">
                                         <div class="col-sm-12 mb-3 mb-sm-0 ">
-                                            <label for="email" class="form-label">Email*</label>
+                                            <label for="email" class="form-label">E-mail <span
+                                                    class="text-danger">*</span></label>
 
                                             <input type="email" class="form-control form-control-user" id="email"
                                                 name="email">
                                         </div>
                                     </div>
-                                    <div class="form-group pb-2">
-                                        <div class="col-sm-12 mb-3 mb-sm-0 ">
-                                            <label for="cpf" class="form-label">CPF*</label>
-
-                                            <input type="text" class="form-control form-control-user" id="cpf"
-                                                name="cpf">
-                                        </div>
-                                    </div>
                                     <div class="form-group row pb-4">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <label for="password" class="form-label">Senha*</label>
+                                            <label for="password" class="form-label">Senha <span
+                                                    class="text-danger">*</span></label>
                                             <input type="password" id="password" name="password"
                                                 class="form-control form-control-user"
                                                 aria-describedby="passwordHelpBlock">

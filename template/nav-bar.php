@@ -1,3 +1,17 @@
+<?php $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+session_start();
+
+function countCartItems()
+{
+    if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+        return count($_SESSION['cart']);
+    }
+    return 0;
+}
+
+$totalItems = countCartItems();
+?>
+
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Nana navigation bar">
 
     <div class="container">
@@ -11,12 +25,19 @@
 
         <div class="collapse navbar-collapse" id="navbarsNana">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item active">
+                <li class="nav-item <?php echo ($currentPage == 'home') ? 'active' : ''; ?>">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>home">Início</a>
                 </li>
-                <li><a class="nav-link" href="<?php echo BASE_URL; ?>shop">Loja</a></li>
-                <li><a class="nav-link" href="<?php echo BASE_URL; ?>about">Sobre nós</a></li>
-                <li><a class="nav-link" href="<?php echo BASE_URL; ?>contact">Contato</a></li>
+                <li
+                    class="nav-item <?php echo ($currentPage == 'shop' || $currentPage == 'shop/product') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>shop">Loja</a>
+                </li>
+                <li class="nav-item <?php echo ($currentPage == 'about') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>about">Sobre nós</a>
+                </li>
+                <li class="nav-item <?php echo ($currentPage == 'contact') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>contact">Contato</a>
+                </li>
             </ul>
 
             <form class="d-flex search-bar" role="search">
@@ -50,9 +71,12 @@
                 </li>
                 <li><a class="nav-link position-relative" href="<?php echo BASE_URL; ?>shop/cart"><img
                             src="<?php echo BASE_URL; ?>assets/images/cart.svg">
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">2
-                        </span>
+                        <?php if ($totalItems > 0): ?>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                <?php echo $totalItems; ?>
+                            </span>
+                        <?php endif; ?>
                     </a>
                 </li>
             </ul>

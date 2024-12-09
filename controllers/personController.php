@@ -46,15 +46,6 @@ class personController extends controller
 			return;
 		}
 
-		if (
-			$person->cpfExists()
-		) {
-			http_response_code(409);
-			echo json_encode(['error' => 'CPF já cadastrado.']);
-			return;
-		}
-
-
 		if ($person->addPerson()) {
 			http_response_code(201);
 			echo json_encode(['message' => 'Cadastro registrado com sucesso.']);

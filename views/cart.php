@@ -3,71 +3,56 @@
         <div class="row mb-5">
             <form class="col-md-12" method="post">
                 <div class="site-blocks-table">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="product-thumbnail">Imagem</th>
-                                <th class="product-name">Produto</th>
-                                <th class="product-price">Preço</th>
-                                <th class="product-quantity">Quantidade</th>
-                                <th class="product-total">Total</th>
-                                <th class="product-remove">Remover</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <img src="images/amigurumis-produtos/pinguim-2.png" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black">Amigurumi Pinguim</h2>
-                                </td>
-                                <td>R$159,90</td>
-                                <td>
-                                    <div class="input-group mb-3 d-flex align-items-center quantity-container"
-                                        style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-black decrease"
-                                                type="button">&minus;</button>
-                                        </div>
-                                        <input type="text" class="form-control text-center quantity-amount" value="1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                        </div>
-                                    </div>
+                    <?php if (empty($products)): ?>
+                        <p>Seu carrinho está vazio!</p>
+                    <?php else: ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="product-thumbnail">Imagem</th>
+                                    <th class="product-name">Produto</th>
+                                    <th class="product-price">Preço</th>
+                                    <th class="product-quantity">Quantidade</th>
+                                    <th class="product-total">Total</th>
+                                    <th class="product-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($products as $product): ?>
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <img src="<?php echo BASE_URL . 'assets/images/products/' . $product['id'] . '-1.png'; ?>"
+                                                alt="Image" class="img-fluid">
+                                        </td>
+                                        <td class="product-name">
+                                            <h5 class="h5 text-black"><?php echo $product['name']; ?></h5>
+                                        </td>
+                                        <td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
+                                        <td>
+                                            <div class="input-group mb-3 d-flex align-items-center quantity-container"
+                                                style="max-width: 120px;">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-outline-black decrease"
+                                                        type="button">&minus;</button>
+                                                    <input type="text" class="form-control text-center quantity-amount"
+                                                        value="<?php echo $product['quantity'] ?>">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-black increase"
+                                                            type="button">&plus;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                </td>
-                                <td>R$159,90</td>
-                                <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                            </tr>
+                                        </td>
+                                        <td>R$ <?php echo calculateTotal($product['price'], $product['quantity']); ?></td>
+                                        <td><a href="<?php echo BASE_URL . 'shop/cart/remove?id=' . $product['id']; ?>"
+                                                class="btn btn-black btn-sm">Remover</a></td>
+                                    </tr>
+                                <?php endforeach; ?>
 
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <img src="images/amigurumis-produtos/gata-3.png" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black">Amigurumi Gatinha</h2>
-                                </td>
-                                <td>R$99,99</td>
-                                <td>
-                                    <div class="input-group mb-3 d-flex align-items-center quantity-container"
-                                        style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-black decrease"
-                                                type="button">&minus;</button>
-                                        </div>
-                                        <input type="text" class="form-control text-center quantity-amount" value="1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                        </div>
-                                    </div>
-
-                                </td>
-                                <td>R$99,99</td>
-                                <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
@@ -96,7 +81,7 @@
                     <div class="col-md-7">
                         <div class="row">
                             <div class="col-md-12 text-right border-bottom mb-5">
-                                <h3 class="text-black h4 text-uppercase">Valor total</h3>
+                                <h4 class="text-black h4 ">Valor total</h4>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -119,7 +104,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn btn-black btn-lg py-3 btn-block"
-                                    href="<?php echo BASE_URL; ?>shop/checkout">Continuar para
+                                    href="<?php echo BASE_URL; ?>checkout">Continuar para
                                     checkout</a>
                             </div>
                         </div>

@@ -30,7 +30,13 @@ class Core
 		$router->addRoute('/shop', array(new shopController(), 'index'));
 		$router->addRoute('/shop/product', array(new shopController(), 'product'));
 		$router->addRoute('/shop/cart', array(new shopController(), 'cart'));
-		$router->addRoute('/shop/checkout', array(new shopController(), 'checkout'));
+		$router->addRoute('/shop/cart/add', array(new shopController(), 'add_to_cart'));
+		$router->addRoute('/shop/cart/remove', array(new shopController(), 'remove_from_cart'));
+
+		// Checkout
+		$router->addRoute('/checkout', array(new checkoutController(), 'index'));
+		$router->addRoute('/checkout/delivery', array(new checkoutController(), 'calculate_delivery'));
+		$router->addRoute('/checkout/complete', array(new checkoutController(), 'checkout'));
 		// $router->addRoute('/pessoa/add_action', array(new personController(), 'add_action'));
 		// $router->addRoute('/pessoa/editar', array(new personController(), 'editar'));
 		// $router->addRoute('/pessoa/edit_action', array(new personController(), 'edit_action'));

@@ -11,4 +11,19 @@ function calculatePercentage($price, $percentage)
 
     return number_format($result, 2, ",", ".");
 }
-?>
+
+function calculateTotal($price, $quantity)
+{
+    $result = $price * $quantity;
+    return number_format($result, 2, ",", ".");
+}
+
+function calculateDelivery($weight, $distance, $baseRate = 10)
+{
+    $ratePerKm = 0.05;
+    $ratePerKg = 2;
+
+    $deliveryCost = $baseRate + ($ratePerKm * $distance) + ($ratePerKg * $weight);
+
+    return number_format($deliveryCost, 2, ',', '.');
+}
