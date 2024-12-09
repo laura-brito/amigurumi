@@ -72,14 +72,14 @@ class checkoutController extends controller
             return;
         }
 
-        // $cardNumber = $_POST['card_number'];
-        // $cardName = $_POST['card_name'];
-        // $dateExpiration = $_POST['date_expiration'];
-        // $cardCpf = $_POST['card_cpf'];
-        // $cvv = $_POST['cvv'];
-        // $cardAmount = $_POST['card_amount'];
+        $cardNumber = $_POST['card_number'];
+        $cardName = $_POST['card_name'];
+        $dateExpiration = $_POST['date_expiration'];
+        $cardCpf = $_POST['card_cpf'];
+        $cvv = $_POST['cvv'];
+        $cardAmount = $_POST['card_amount'];
 
-        // $this->loadTemplate('thankyou', $this->data);
+        $this->loadTemplate('thankyou', $this->data);
     }
 
     public function calculate_delivery()

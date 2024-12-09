@@ -41,8 +41,8 @@ $totalItems = countCartItems();
             </ul>
 
             <form class="d-flex search-bar" role="search">
-                <input class="form-control me-2" id="search" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search-heart"></i></button>
+                <!-- <input class="form-control me-2" id="search" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search-heart"></i></button> -->
             </form>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

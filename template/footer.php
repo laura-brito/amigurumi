@@ -2,9 +2,8 @@
     <div class="container relative">
 
         <div class="row g-5 mb-5">
-            <div class="col-lg-4">
+            <div class="col-md-4">
                 <div class="mb-4 footer-logo-wrap">
-
                     <a href="index.html">
                         <img src="<?php echo BASE_URL; ?>assets/images/logo-pink.svg" style="width: 115px;">
                     </a>
@@ -26,18 +25,10 @@
                 </ul>
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-md-4">
                 <div class="row links-wrap">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="about.html">Sobre nós</a></li>
-                            <li><a href="contact.html">Contato</a></li>
-                            <li><a href="contact.html">Suporte</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <ul class="list-unstyled mb-4">
                             <li><a href="about.html">Nosso time</a></li>
                             <li><a href="#">Termos e condições</a></li>
                             <li><a href="#">Política de privacidade</a></li>
@@ -46,7 +37,17 @@
 
                 </div>
             </div>
-
+            <div class="col-md-4">
+                <div class="row links-wrap">
+                    <div class="col-12 p-2">
+                        <img style="max-width: 120px;" src="<?php echo BASE_URL; ?>assets/images/banks/lock.png" />
+                    </div>
+                    <div class="col-12 p-2">
+                        <img style="max-width: 60px;" src="<?php echo BASE_URL; ?>assets/images/banks/mc.svg" />
+                        <img style="max-width: 60px;" src="<?php echo BASE_URL; ?>assets/images/banks/elo.png" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="border-top copyright">
