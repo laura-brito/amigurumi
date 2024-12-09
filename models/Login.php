@@ -30,11 +30,9 @@ class Login extends model
 
         $sql = 'SELECT * 
 	         	FROM person
-	         	WHERE email = :email 
-                OR    cpf = :cpf';
+	         	WHERE email = :email';
 
         $sql = $this->db->prepare($sql);
-        $sql->bindValue('cpf', $this->username);
         $sql->bindValue('email', $this->username);
         $sql->execute();
         $person = $sql->fetch(\PDO::FETCH_ASSOC);

@@ -5,14 +5,17 @@ class Person extends model
 	public $email;
 	public $password;
 
-	public function __construct($name, $email, $password)
+	public function __construct()
 	{
 		parent::__construct();
+	}
+
+	public function create($name, $email, $password)
+	{
 		$this->name = $name;
 		$this->email = $email;
 		$this->password = $password;
 	}
-
 	public function addPerson()
 	{
 		$sql = "INSERT INTO person(name, email, password)
@@ -23,25 +26,6 @@ class Person extends model
 		$sql->bindValue('email', $this->email);
 		$sql->bindValue('password', $this->password);
 		return $sql->execute();
-	}
-
-	public function atualizar($modelo)
-	{
-		$sql = "UPDATE tab_pessoa
-		           SET nome     = :nome
-		             , telefone = :telefone
-		             , endereco = :endereco
-		             , email    = :email
-		         WHERE id       = :id";
-
-		$sql = $this->db->prepare($sql);
-		$sql->bindValue('nome', $modelo['nome']);
-		$sql->bindValue('telefone', $modelo['telefone']);
-		$sql->bindValue('endereco', $modelo['endereco']);
-		$sql->bindValue('email', $modelo['email']);
-		$sql->bindValue('id', $modelo['id']);
-		$sql->execute();
-
 	}
 
 	public function getAll()
@@ -68,6 +52,24 @@ class Person extends model
 
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(":id", $id);
+		$sql->execute();
+
+		if ($sql->rowCount() > 0) {
+			$retorno = $sql->fetch(\PDO::FETCH_ASSOC);
+		}
+
+		return $retorno;
+	}
+	public function getByUsername($username)
+	{
+		$retorno = array();
+
+		$sql = 'SELECT * 
+	         	  FROM person
+	         	 WHERE email = :email';
+
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":email", $username);
 		$sql->execute();
 
 		if ($sql->rowCount() > 0) {

@@ -1,5 +1,4 @@
 <?php $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-session_start();
 
 function countCartItems()
 {
@@ -47,7 +46,7 @@ $totalItems = countCartItems();
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 
-                <?php if (isset($_SESSION['person']) && $isLoggedIn): ?>
+                <?php if (isset($_SESSION['person'])): ?>
                     <div class="d-flex align-self-center">
 
                         <div class="dropdown">

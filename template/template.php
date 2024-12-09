@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+$currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -52,6 +54,9 @@ session_start();
                                     <i class="bi bi-person-circle" style="font-size: 80px;"></i>
                                 </div>
                                 <form class="user" method="post" action="<?php echo BASE_URL; ?>login">
+                                    <input type="hidden" name="redirect_url"
+                                        value="<?php echo htmlspecialchars($currentPage); ?>">
+
                                     <div class="form-group pb-2">
                                         <input type="text" id="username" name="username"
                                             class="form-control form-control-user" aria-describedby="emailHelp"
