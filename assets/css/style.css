@@ -21,7 +21,7 @@
   --gray: #9d8189;
 }
 
-html{
+html {
   overflow-x: hidden !important;
 }
 
@@ -575,7 +575,7 @@ a.more {
 
 .footer-section {
   padding: 40px 0;
-  background: var(--pink);
+  background: var(--cream);
 }
 
 .footer-section .relative {
@@ -700,6 +700,10 @@ a.more {
   padding: 7rem 0;
 }
 
+.bg-cream {
+  background-color: var(--cream) !important;
+}
+
 .form-control {
   height: 50px;
   border-radius: 10px;
@@ -792,6 +796,14 @@ textarea {
   color: #000;
   border: none;
   height: auto !important;
+}
+
+.site-blocks-table .table {
+  border-radius: 8px;
+}
+
+.table {
+  --bs-table-bg: var(--cream) !important;
 }
 
 .site-block-order-table th {

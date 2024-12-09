@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row mb-5">
             <form class="col-md-12" method="post">
-                <div class="site-blocks-table">
+                <div class="site-blocks-table bg-cream">
                     <?php if (empty($products)): ?>
                         <p>Seu carrinho está vazio!</p>
                     <?php else: ?>
-                        <table class="table">
+                        <table class="table bg-cream">
                             <thead>
                                 <tr>
                                     <th class="product-thumbnail">Imagem</th>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 pl-5">
+            <div class="col-md-6 pl-5 bg-cream">
                 <div class="row justify-content-end">
                     <div class="col-md-7">
                         <div class="row">

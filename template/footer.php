@@ -1,4 +1,4 @@
-<footer class="footer-section">
+<footer class="footer-section border-top">
     <div class="container relative">
 
         <div class="row g-5 mb-5">
@@ -6,7 +6,7 @@
                 <div class="mb-4 footer-logo-wrap">
 
                     <a href="index.html">
-                        <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" style="width: 115px;">
+                        <img src="<?php echo BASE_URL; ?>assets/images/logo-pink.svg" style="width: 115px;">
                     </a>
                 </div>
                 <p class="mb-4">Somos apaixonados pela arte do amigurumi e dedicados a trazer alegria e

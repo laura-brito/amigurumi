@@ -1,4 +1,4 @@
-<div class="nana-section product-section before-footer-section bg-light">
+<div class="nana-section product-section before-footer-section">
     <div class="container">
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -100,7 +100,7 @@
             </div>
         </section>
         <!-- Related items section-->
-        <section class="py-5 bg-light">
+        <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Produtos relacionados</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
