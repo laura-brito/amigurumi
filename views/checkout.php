@@ -2,6 +2,11 @@
 
 <div class="nana-section">
     <div class="container">
+        <?php if ($errors != ''): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong>Erro!</strong> <?php echo $errors ?>
+            </div>
+        <?php endif; ?>
         <?php if (!isset($_SESSION['person'])): ?>
             <div class="row mb-5">
                 <div class="col-md-12">
@@ -306,23 +311,31 @@
 <script>
     function applyCoupom() {
         const coupon = document.getElementById("coupon").value;
+        if (coupon !== "PRIMEIRACOMPRA") {
+            coupomInfo = `<div class="alert alert-danger" role="alert">
+             Cupom inválido.
+        </div>`;
+            document.getElementById("coupom-info").innerHTML = coupomInfo;
 
-        coupomInfo = `<div class="input-group" style="padding-top: 12px;">
-                    <div class="feature row justify-content-between flex-row">
-                        <p>${coupon}</p>
-                    </div>
-                  </div>`;
+        } else {
 
-        document.getElementById("coupom-info").innerHTML = coupomInfo;
+            coupomInfo = `<div class="input-group" style="padding-top: 12px;">
+            <div class="feature row justify-content-between flex-row">
+            <p>${coupon}</p>
+            </div>
+            </div>`;
 
-        calculateDelivery();
+            document.getElementById("coupom-info").innerHTML = coupomInfo;
+
+            calculateDelivery();
+        }
     }
 
     function calculateDelivery() {
         const BASE_URL = "<?php echo BASE_URL; ?>";
-
         const cep = document.getElementById("cep").value;
         const coupon = document.getElementById("coupon").value;
+        const email = document.getElementById("email").value;
         let deliveryInfo = `
         <div class="text-center p-4">
             <div class="spinner-border" role="status">
@@ -332,7 +345,7 @@
         document.getElementById("delivery-info").innerHTML = deliveryInfo;
 
         setTimeout(() => {
-            fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}`)
+            fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}&email=${email}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Erro HTTP: ${response.status}`);

@@ -53,6 +53,11 @@ $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
                                 <div class="text-center pb-5">
                                     <i class="bi bi-person-circle" style="font-size: 80px;"></i>
                                 </div>
+                                <?php if ($errors != ''): ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>Erro!</strong> <?php echo $errors ?>
+                                    </div>
+                                <?php endif; ?>
                                 <form class="user" method="post" action="<?php echo BASE_URL; ?>login">
                                     <input type="hidden" name="redirect_url"
                                         value="<?php echo htmlspecialchars($currentPage); ?>">
@@ -105,6 +110,11 @@ $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Cadastro de novo cliente</h1>
+                                    <?php if ($errors != ''): ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong>Erro!</strong> <?php echo $errors ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <p class="text-gray-300">Campos marcados com <span class="text-danger">*</span> são
                                         de preenchimento
                                         obrigatório
@@ -116,8 +126,7 @@ $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
                                             <label for="name" class="form-label">Nome Completo <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control form-control-user" id="name"
-                                                name="name" placeholder="">
-
+                                                name="name" placeholder="" required="true">
                                         </div>
                                     </div>
                                     <div class="form-group pb-2">

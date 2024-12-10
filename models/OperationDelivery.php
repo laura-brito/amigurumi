@@ -19,12 +19,13 @@ class OperationDelivery extends model
         $this->number = $number;
         $this->complement = $complement;
         $this->transactionId = $transactionId;
-        $this->status = 0;
+        $this->status = 1;
         $this->deliveryPrice = $deliveryCost;
     }
 
     public function addOperationDelivery()
     {
+        var_dump($this->stateUf, $this->number, $this->addressLine, $this->complement, $this->deliveryPrice);
         $sql = "INSERT INTO operation_delivery(transaction_id, address_line, number, state_uf, complement, status, delivery_price)
 		        VALUES(:transaction_id, :address_line, :number, :state_uf, :complement, :status, :deliveryPrice)";
 
@@ -34,7 +35,7 @@ class OperationDelivery extends model
         $sql->bindValue('number', $this->number);
         $sql->bindValue('state_uf', $this->stateUf);
         $sql->bindValue('complement', $this->complement);
-        $sql->bindValue('status', $this->status);
+        $sql->bindValue('status', 1);
         $sql->bindValue('deliveryPrice', $this->deliveryPrice);
 
         return $sql->execute();

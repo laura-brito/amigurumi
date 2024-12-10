@@ -10,45 +10,39 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
-                <img src="images/julia.jpg" class="img-fluid mb-5">
-                <h3 clas><a href="https://www.linkedin.com/in/j%C3%BAlia-vasconcelos-40515a274/"
-                        target="_blank"><span>Lei</span> Mei</a></h3>
-                <p>Conheça Lei Mei, nossa talentosa especialista em crochê e amigurumi. Com uma verdadeira paixão pela
-                    arte de trabalhar com fios, Lei Mei transforma simples linhas em peças encantadoras e cheias de
-                    personalidade. Sua habilidade em criar amigurumis detalhados e exclusivos, além de acessórios e
-                    itens decorativos, reflete sua dedicação e amor pelo crochê. Cada peça criada por Lei Mei é única,
-                    resultado de sua experiência e criatividade. Em nosso time, ela não só compartilha seu conhecimento
-                    com os outros, mas também inspira aqueles ao seu redor a explorar o mundo encantado do crochê. Se
-                    você está em busca de algo especial, Lei Mei é a pessoa certa para trazer vida e magia às suas
-                    ideias!</p>
+            <div class="col-12 col-md-6 col-lg-6 mb-5 mb-md-0">
+                <img src="<?php BASE_URL; ?>assets/images/NANA.jpg" class="img-fluid mb-5"
+                    style="max-width: 450px; border-radius: 8px">
+                <h3 clas><span>Nana</span> Osaki</a></h3>
+                <p>Com um espírito rebelde e um olhar intenso, Nana Osaki é muito mais do que uma ex-vocalista de uma
+                    banda punk. Sua paixão por crochê começou como uma maneira de relaxar entre os ensaios, mas
+                    rapidamente se tornou uma nova forma de expressão criativa. Hoje, ela está transformando sua energia
+                    punk em peças incríveis de amigurumis.
+
+                    Na sua lojinha online, Nana imprime seu estilo único em cada criação. Seus amigurumis têm um toque
+                    de ousadia: desde bichinhos com piercings até bonecos com roupas que parecem ter saído de um show de
+                    rock. Quando não está criando, ela cuida das estratégias da loja, trazendo sua determinação para
+                    fazer o negócio crescer. Afinal, seja no palco ou no mundo do crochê, Nana Osaki é sinônimo de
+                    autenticidade e paixão.</p>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
-                <img src="images/julia.jpg" class="img-fluid mb-5">
-                <h3 clas><a href="https://www.linkedin.com/in/j%C3%BAlia-vasconcelos-40515a274/"
-                        target="_blank"><span>Júlia</span> Vasconcelos</a></h3>
-                <p>Estudante de Análise e Desenvolvimento de Sistemas no Instituto Federal de Educação, Ciência e
-                    Tecnologia de São Paulo, Campus Catanduva</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
-                <img src="images/laura.jpeg" class="img-fluid mb-5">
-                <h3 clas><a href="https://www.linkedin.com/in/laura-brito-b12889149" target="_blank"><span>Laura</span>
-                        Brito</a></h3>
-                <p>Estudante de Análise e Desenvolvimento de Sistemas no Instituto Federal de Educação, Ciência e
-                    Tecnologia de São Paulo, Campus Catanduva</p>
+            <div class="col-12 col-md-6 col-lg-6 mb-5 mb-md-0">
+                <img src="<?php BASE_URL; ?>assets/images/HACHI.jpg" class="img-fluid mb-5"
+                    style="max-width: 450px; border-radius: 8px;">
+                <h3 clas><span>Nana</span> Komatsu</a></h3>
+                <p>Nana Komatsu, carinhosamente chamada de Hachi, é a alma criativa e detalhista por trás da estética da
+                    lojinha de amigurumis. Com uma visão delicada e cheia de charme, ela transforma cada ideia em um
+                    verdadeiro espetáculo visual. Seja escolhendo as cores dos fios ou adicionando pequenos detalhes aos
+                    amigurumis, Hachi traz o toque mágico que torna cada peça irresistível.
+
+                    Além de ajudar a confeccionar os amigurumis, Hachi é responsável por todas as fotos e descrições da
+                    loja, garantindo que tudo tenha um ar acolhedor e encantador. Seu objetivo? Fazer com que cada
+                    cliente se sinta especial ao receber um amigurumi feito com amor. Mesmo com sua personalidade
+                    sonhadora, Hachi trabalha duro ao lado de Osaki, mostrando que juntas elas são a equipe perfeita: o
+                    rock e a delicadeza unidos pelo crochê.</p>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
-                <img src="images/lucas.jpg" class="img-fluid mb-5">
-
-                <h3 clas><a href="https://www.linkedin.com/in/olucas-silva/" target="_blank"><span>Lucas</span>
-                        Silva</a></h3>
-                <p>Estudante de Análise e Desenvolvimento de Sistemas no Instituto Federal de Educação, Ciência e
-                    Tecnologia de São Paulo, Campus Catanduva</p>
-
-            </div>
 
         </div>
     </div>

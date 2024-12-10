@@ -78,3 +78,14 @@ function generateTransactionId()
 {
     return mt_rand(1, 1000);
 }
+
+function calculatePercentageWhitoutFormat($price, $percentage)
+{
+    if ($percentage == 0)
+        return $price;
+
+    $percentageValue = $price * ($percentage / 100);
+    $result = $price - $percentageValue;
+
+    return $result;
+}
