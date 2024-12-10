@@ -66,7 +66,7 @@ class personController extends controller
 			exit;
 		}
 
-		$this->loadTemplate('register', $this->data);
+		$this->loadTemplate('home', $this->data);
 
 		exit;
 	}

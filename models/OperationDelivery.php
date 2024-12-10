@@ -25,7 +25,6 @@ class OperationDelivery extends model
 
     public function addOperationDelivery()
     {
-        var_dump($this->stateUf, $this->number, $this->addressLine, $this->complement, $this->deliveryPrice);
         $sql = "INSERT INTO operation_delivery(transaction_id, address_line, number, state_uf, complement, status, delivery_price)
 		        VALUES(:transaction_id, :address_line, :number, :state_uf, :complement, :status, :deliveryPrice)";
 

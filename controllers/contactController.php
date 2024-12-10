@@ -19,11 +19,11 @@ class contactController extends controller
         $headers = 'From: ' . $_POST['email'];
         $message = $_POST['message'];
 
-        if (mail($to, $subject, $message, $headers)) {
-            echo "E-mail enviado com sucesso!";
-        } else {
-            echo "Falha ao enviar o e-mail.";
-        }
+        // if (mail($to, $subject, $message, $headers)) {
+        //     echo "E-mail enviado com sucesso!";
+        // } else {
+        //     echo "Falha ao enviar o e-mail.";
+        // }
 
         $this->loadTemplate('contact');
     }
