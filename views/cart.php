@@ -31,7 +31,7 @@
                                         </td>
                                         <td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
                                         <td>
-                                            <div class="input-group mb-3 d-flex align-items-center quantity-container"
+                                            <div class="input-group mb-3 d-flex align-items-center justify-content-between quantity-container"
                                                 style="max-width: 120px;">
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-outline-black decrease"

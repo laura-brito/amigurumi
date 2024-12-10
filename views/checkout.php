@@ -157,7 +157,9 @@
                                             onclick="calculateDelivery()">Calcular</button>
                                     </div>
                                 </div>
-                                <div id="delivery-info"></div>
+                                <div id="delivery-info">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,7 +182,8 @@
                                                     <td><?php echo $product['name'] ?><strong class="mx-2">x</strong>
                                                         <?php echo $product['quantity'] ?>
                                                     </td>
-                                                    <td>R$ <?php echo calculateTotal($product['price'], $product['quantity']) ?>
+                                                    <td>R$
+                                                        <?php echo calculatePercentage($product['price'], $product['featured_percentage']) ?>
                                                     </td>
                                                 </tr>
 
@@ -188,13 +191,20 @@
                                             <tr>
                                                 <td class="text-black font-weight-bold"><strong>Subtotal do
                                                         carrinho</strong></td>
-                                                <td class="text-black">R$259,89</td>
+                                                <td class="text-black">R$
+                                                    <?php echo calculateSubtotal($_SESSION['cart']) ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-black font-weight-bold"><strong>Total do pedido</strong>
                                                 </td>
-                                                <td class="text-black font-weight-bold"><strong>R$
-                                                        <?php echo calculateCartTotal($_SESSION['cart']) ?></strong></td>
+                                                <td class="text-black font-weight-bold">
+                                                    <div id="totalOperation">
+                                                        <strong>R$
+                                                            <?php echo calculateCartTotal($_SESSION['cart']) ?>
+                                                        </strong>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
 
@@ -317,10 +327,9 @@
         <div class="text-center p-4">
             <div class="spinner-border" role="status">
             </div>
-            </div>
+        </div>
         `;
         document.getElementById("delivery-info").innerHTML = deliveryInfo;
-
 
         setTimeout(() => {
             fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}`)
@@ -373,6 +382,7 @@
                     }
 
                     document.getElementById("delivery-info").innerHTML = deliveryInfo;
+
                 })
                 .catch(error => console.error("Erro ao calcular o frete:", error));
         }, 800);

@@ -24,11 +24,31 @@ class transactionController extends controller
                 $address = new OperationDelivery();
                 $address = $address->getByTransaction($transactionId);
 
+                $status = 0;
+
+                switch ($address['status']) {
+                    case '1':
+                        $status = 30;
+                        break;
+                    case '2':
+                        $status = 60;
+                        break;
+                    case '3':
+                        $status = 100;
+                        break;
+
+                    default:
+                        $status = 30;
+                        break;
+                }
+
+                $deliveryCost = $address['delivery_price'];
                 $delivery = "{$address['address_line']}, {$address['number']} - {$address['complement']}, {$address['state_uf']}";
                 $groupedTransactions[$transactionId] = [
                     'date' => $date,
                     'delivery' => $delivery,
-                    'status' => $address['status'],
+                    'deliveryCost' => $deliveryCost,
+                    'status' => $status,
                     'items' => []
                 ];
             }
@@ -38,9 +58,12 @@ class transactionController extends controller
 
         foreach ($groupedTransactions as $transactionId => &$transaction) {
             $total = 0.0;
+            $discount = 0.0;
+
             foreach ($transaction['items'] as $item) {
-                $total += (double) $item['total_price'];
+                $total += (double) $item['total_price'] + $item['delivery_price'];
             }
+
             $groupedTransactions[$transactionId]['total'] = $total;
         }
 
@@ -48,12 +71,4 @@ class transactionController extends controller
         $this->loadTemplate('transaction', $this->data);
     }
 
-    public function detail()
-    {
-        $transactionId = $_GET['id'];
-        $operation = new Operation();
-        $transactions = $operation->getByTransaction($transactionId);
-        $this->data['transactions'] = $transactions;
-        $this->loadTemplate('transaction', $this->data);
-    }
 }

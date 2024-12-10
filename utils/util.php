@@ -6,6 +6,10 @@ function calculateQuota($price, $quota)
 
 function calculatePercentage($price, $percentage)
 {
+    if ($percentage == 0)
+        return number_format($price, 2, ",", ".");
+    ;
+
     $percentageValue = $price * ($percentage / 100);
     $result = $price - $percentageValue;
 
@@ -33,8 +37,39 @@ function calculateCartTotal($cart)
     $total = 0;
 
     foreach ($cart as $item) {
-        $total += $item['price'] * $item['quantity'];
+        if ($item['featured']) {
+            $price = calculatePercentage($item['price'], $item['featured_price']);
+            $total += $price * $item['quantity'];
+
+        } else {
+
+            $total += $item['price'] * $item['quantity'];
+        }
     }
+
+
+    if (isset($_SESSION['deliveryCost'])) {
+        $total += $_SESSION['deliveryCost'];
+    }
+
+    return number_format($total, 2, ',', '.');
+}
+
+function calculateSubtotal($cart)
+{
+    $total = 0;
+
+    foreach ($cart as $item) {
+        if ($item['featured']) {
+            $price = calculatePercentage($item['price'], $item['featured_price']);
+            $total += $price * $item['quantity'];
+
+        } else {
+
+            $total += $item['price'] * $item['quantity'];
+        }
+    }
+
 
     return number_format($total, 2, ',', '.');
 }

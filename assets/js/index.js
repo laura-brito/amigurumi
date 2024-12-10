@@ -18,3 +18,8 @@ function calculateDelivery() {
         })
         .catch(error => console.error("Erro ao calcular o frete:", error));
 }
+
+
+function addQuantity() {
+
+}

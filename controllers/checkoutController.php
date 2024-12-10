@@ -27,7 +27,6 @@ class checkoutController extends controller
         }
 
         $email = isset($_SESSION['person']) ? $_SESSION['person']['email'] : $_POST['email'];
-
         $name = isset($_SESSION['person']) ? $_SESSION['person']['name'] : $_POST['name'];
 
         $createAccount = $_POST['create_account'];
@@ -52,7 +51,7 @@ class checkoutController extends controller
             $productId = $product['id'];
             $totalQuantity = $product['quantity'];
             $totalPrice = $product['price'] * $product['quantity'];
-            $unitPrice = $product['price'];
+            $unitPrice = $product['featured'] ? calculateQuota($product['price'], $product['featured_percentage']) : $product['price'];
             $dateAdded = new DateTime();
             $operation->create($productId, $email, $dateAdded, $totalQuantity, $totalPrice, $unitPrice, $transactionId);
             $result = $operation->addOperation();
@@ -66,8 +65,9 @@ class checkoutController extends controller
         $addressLine = $_POST['address_line'];
         $number = $_POST['number'];
         $complement = $_POST['complement'];
+        $deliveryCost = $_SESSION['deliveryCost'] ?? 0;
         $delivery = new OperationDelivery();
-        $delivery->create($stateUf, $addressLine, $number, $complement, $transactionId);
+        $delivery->create($stateUf, $addressLine, $number, $complement, $transactionId, $deliveryCost);
 
         $result = $delivery->addOperationDelivery();
 
@@ -88,7 +88,7 @@ class checkoutController extends controller
             unset($_SESSION['cart']);
         }
 
-        $this->data['transactionId'] = $transactionId;
+        $this->data['email'] = $email;
         $this->loadTemplate('thankyou', $this->data);
     }
 
@@ -97,6 +97,7 @@ class checkoutController extends controller
         $coupon = isset($_GET['coupon']) ? $_GET['coupon'] : null;
         if ($coupon !== null && $coupon !== '' && $coupon === 'PRIMEIRACOMPRA') {
             $result = 0;
+            $_SESSION['deliveryCost'] = $result;
             header('Content-Type: application/json');
             echo json_encode(['deliveryCost' => $result]);
             exit;
@@ -105,6 +106,7 @@ class checkoutController extends controller
         $cep = intval($_GET['cep']);
         $distance = rad2deg($cep);
         $result = calculateDelivery(15, $distance, $cep);
+        $_SESSION['deliveryCost'] = $result;
 
         header('Content-Type: application/json');
         echo json_encode(['deliveryCost' => $result]);

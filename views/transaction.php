@@ -51,13 +51,16 @@
                                 <p class="mb-1"><strong>Total: R$
                                         <?php echo number_format($items['total'], 2, ',', '.') ?></strong></p>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-1 text-muted">Desconto</p>
-                                <p class="mb-1 text-muted">R$ 150</p>
-                            </div>
+
                             <div class="d-flex justify-content-between">
                                 <p class="mb-1 text-muted">Taxas de entrega</p>
-                                <p class="mb-1 text-success">Grátis</p>
+                                <?php if ($items['deliveryCost'] == 0): ?>
+                                    <p class="mb-1 text-success">Grátis</p>
+                                <?php else: ?>
+                                    <p class="mb-1 text-muted">R$ <?php echo number_format($items['deliveryCost'], 2, ',', '.') ?>
+                                    </p>
+
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -80,7 +83,7 @@
                             <div class="progress">
                                 <div class="progress-bar bg-success" style="width: <?php echo $items['status']; ?>%;"
                                     role="progressbar" aria-valuenow="<?php echo $items['status']; ?>" aria-valuemin="0"
-                                    aria-valuemax="3">
+                                    aria-valuemax="100">
                                 </div>
                             </div>
                         </div>

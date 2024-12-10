@@ -55,7 +55,6 @@ $totalItems = countCartItems();
                             </a>
 
                             <ul class="dropdown-menu">
-                                <!-- <li><a class="dropdown-item" href="#">Meus dados</a></li> -->
                                 <li><a class="dropdown-item"
                                         href="<?php echo BASE_URL . 'transaction?email=' . $_SESSION['person']['email'] ?>">Meus
                                         pedidos</a>
