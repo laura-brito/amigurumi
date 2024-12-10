@@ -14,12 +14,6 @@ class personController extends controller
 		$this->loadTemplate('pessoa', $this->dados);
 	}
 
-	public function adicionar()
-	{
-
-		$this->loadTemplate('pessoa_adicionar', $this->dados);
-	}
-
 	public function register_action()
 	{
 		ini_set('display_erros', 1);
@@ -33,16 +27,16 @@ class personController extends controller
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$cpf = $_POST['cpf'];
 
-		if (empty($name) || empty($email) || empty($password) || empty($cpf)) {
+		if (empty($name) || empty($email) || empty($password)) {
 			http_response_code(response_code: 400);
 			echo json_encode(['error' => 'Todos os campos são obrigatórios.']);
 			return;
 		}
 
 		$passwordHash = password_hash($password, PASSWORD_BCRYPT);
-		$person = new Person($name, $email, $cpf, $passwordHash);
+		$person = new Person();
+		$person->create($name, $email, $passwordHash);
 
 		if (
 			$person->emailExists()
@@ -51,15 +45,6 @@ class personController extends controller
 			echo json_encode(['error' => 'E-mail já cadastrado.']);
 			return;
 		}
-
-		if (
-			$person->cpfExists()
-		) {
-			http_response_code(409);
-			echo json_encode(['error' => 'CPF já cadastrado.']);
-			return;
-		}
-
 
 		if ($person->addPerson()) {
 			http_response_code(201);
@@ -73,42 +58,6 @@ class personController extends controller
 		}
 
 		header("Location: " . BASE_URL . "home");
-		exit;
-	}
-
-	public function editar()
-	{
-
-		if (!isset($_GET['id']) || empty($_GET['id'])) {
-			header("Location: " . BASE_URL . "pessoa");
-			exit;
-		}
-
-		// $person = new Person();
-		// $this->dados['pessoa'] = $person->get($_GET['id']);
-
-		$this->loadTemplate('pessoa_editar', $this->dados);
-	}
-
-	public function edit_action()
-	{
-
-		if (!isset($_GET['id']) || empty($_GET['id'])) {
-			header("Location: " . BASE_URL . "pessoa");
-			exit;
-		}
-
-		$modelo['id'] = $_GET['id'];
-		$modelo['nome'] = $_POST['nome'];
-		$modelo['telefone'] = $_POST['telefone'];
-		$modelo['endereco'] = $_POST['endereco'];
-		$modelo['email'] = $_POST['email'];
-		$modelo['senha'] = $_POST['senha'];
-
-		// $pessoa = new Person();
-		// $pessoa->atualizar($modelo);
-
-		header("Location: " . BASE_URL . 'pessoa');
 		exit;
 	}
 }

@@ -2,8 +2,6 @@
 
 <?php require './template/hero.php' ?>
 
-<!-- Começo sobre produtos -->
-
 <div class="product-section m-lg-1 justify-content-around">
     <div class="container">
         <div class="row">
@@ -33,5 +31,4 @@
     </div>
 </div>
 
-<!-- Fim sobre produtos -->
 <?php require './template/why-choose-us.php' ?>

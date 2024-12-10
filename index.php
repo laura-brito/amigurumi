@@ -15,7 +15,9 @@ spl_autoload_register(
 		} elseif (file_exists('core/' . $class . '.php')) {
 			require_once 'core/' . $class . '.php';
 		}
+		require_once('./utils/util.php');
 	}
+
 );
 
 $core = new Core();

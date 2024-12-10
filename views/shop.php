@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/shop.css">
+
+<div class="nana-section product-section before-footer-section">
+	<div class="container">
+		<div class="row">
+			<?php if (!empty($products)): ?>
+				<?php foreach ($products as $product): ?>
+					<div class="col-12 col-md-4 col-lg-3 mb-5">
+						<div class="card h-100">
+							<a href="<?php echo BASE_URL . 'shop/product?id=' . htmlspecialchars($product['id']); ?>"
+								style="text-decoration: none;">
+								<?php if ($product['featured'] == 1): ?>
+									<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+										Promoção</div>
+								<?php endif ?>
+								<img class="card-img-top"
+									src="<?php echo BASE_URL . 'assets/images/products/' . $product['id'] . '-1.png'; ?>">
+								<div class="card-body row p-4">
+									<div class="text-center justify-content-between align-items-between">
+										<div class="col-12">
+
+											<h5 class="fw-bolder"><?php echo htmlspecialchars($product['name']) ?></h5>
+										</div>
+										<?php if ($product['featured'] == 1): ?>
+											<div class="fs-5 mb-5 col-12">
+												<span class="text-decoration-line-through" style="font-size: 16px;">R$
+													<?php echo htmlspecialchars(number_format($product['price'], 2, ',', '.')) ?></span>
+												<span><?php echo 'R$' . calculatePercentage($product['price'], $product['featured_percentage']) ?></span>
+											</div>
+										<?php else: ?>
+											<div class="fs-5 mb-5 col-12">
+												<span class="text-center">
+													<?php echo 'R$ ' . htmlspecialchars(number_format($product['price'], 2, ',', '.')) ?></span>
+												</span>
+											</div>
+										<?php endif ?>
+
+
+										<div class="text-center col-12 align-self-end">
+											<span><?php echo '5x de R$' . calculateQuota($product['price'], 5) . '*' ?></span>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+									<div class="text-center">
+										<a class="btn btn-outline-dark mt-auto"
+											href="<?php echo BASE_URL . 'shop/product?id=' . htmlspecialchars($product['id']); ?>"><i
+												class="bi bi-plus-circle-fill"></i></a>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+					<div class="text-center">
+						<h2>Não há produtos no momento</h2>
+					</div>
+				</div>
+			<?php endif ?>
+		</div>
+	</div>
+</div>
