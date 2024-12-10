@@ -36,6 +36,9 @@ class loginController extends controller
 		if ($redirect_url == 'login') {
 			$redirect_url = 'home';
 		}
+		if ($redirect_url == 'product') {
+			$redirect_url = 'shop';
+		}
 
 		$this->loadTemplate($redirect_url, $this->data);
 	}
