@@ -29,24 +29,25 @@
                                         <td class="product-name">
                                             <h5 class="h5 text-black"><?php echo $product['name']; ?></h5>
                                         </td>
-                                        <td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
-                                        <td>
-                                            <div class="input-group mb-3 d-flex align-items-center quantity-container"
-                                                style="max-width: 120px;">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-black decrease"
-                                                        type="button">&minus;</button>
-                                                    <input type="text" class="form-control text-center quantity-amount"
-                                                        value="<?php echo $product['quantity'] ?>">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-outline-black increase"
-                                                            type="button">&plus;</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <?php if ($product['featured']): ?>
+                                            <td>R$
+                                                <?php echo calculatePercentage($product['price'], $product['featured_percentage']); ?>
+                                            </td>
+                                        <?php else: ?>
+                                            <td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
+                                        <?php endif; ?>
 
+                                        <td>
+                                            <?php echo $product['quantity'] ?>
                                         </td>
-                                        <td>R$ <?php echo calculateTotal($product['price'], $product['quantity']); ?></td>
+                                        <?php if ($product['featured']): ?>
+                                            <td>R$
+                                                <?php echo calculateTotal(calculatePercentage($product['price'], $product['featured_percentage']), $product['quantity']); ?>
+                                            </td>
+                                        <?php else: ?>
+                                            <td>R$ <?php echo calculateTotal($product['price'], $product['quantity']); ?></td>
+                                        <?php endif; ?>
+
                                         <td><a href="<?php echo BASE_URL . 'shop/cart/remove?id=' . $product['id']; ?>"
                                                 class="btn btn-black btn-sm">Remover</a></td>
                                     </tr>
@@ -77,7 +78,8 @@
                                     <span class="text-black">Subtotal</span>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <strong class="text-black">R$259,89</strong>
+                                    <strong class="text-black">R$
+                                        <?php echo calculateSubtotal($_SESSION['cart']) ?></strong>
                                 </div>
                             </div>
                             <div class="row mb-5">

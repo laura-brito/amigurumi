@@ -9,7 +9,7 @@
                 <h2 class="mb-4 section-title">Peças feitas à mão.</h2>
                 <p class="mb-4">Confeccionado com excelente material e cuidadosamente feito à mão com amor e
                     dedicação, garantido um produto único e especial.</p>
-                <p><a href="shop.html" class="btn">Explorar</a></p>
+                <p><a href="<?php echo BASE_URL; ?>shop" class="btn">Explorar</a></p>
             </div>
             <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                 <img src="<?php echo BASE_URL; ?>assets/images/knitting.png"

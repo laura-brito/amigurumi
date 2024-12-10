@@ -28,7 +28,7 @@
                 <div class="row links-wrap">
                     <div class="col-12 col-sm-12 col-md-6">
                         <ul class="list-unstyled mb-4">
-                            <li><a href="about.html">Nosso time</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>about">Nosso time</a></li>
                             <li><a href="#">Termos e condições</a></li>
                             <li><a href="#">Política de privacidade</a></li>
                         </ul>

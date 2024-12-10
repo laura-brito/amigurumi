@@ -2,6 +2,11 @@
 
 <div class="nana-section">
     <div class="container">
+        <?php if ($errors != ''): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong>Erro!</strong> <?php echo $errors ?>
+            </div>
+        <?php endif; ?>
         <?php if (!isset($_SESSION['person'])): ?>
             <div class="row mb-5">
                 <div class="col-md-12">
@@ -157,7 +162,9 @@
                                             onclick="calculateDelivery()">Calcular</button>
                                     </div>
                                 </div>
-                                <div id="delivery-info"></div>
+                                <div id="delivery-info">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,7 +187,8 @@
                                                     <td><?php echo $product['name'] ?><strong class="mx-2">x</strong>
                                                         <?php echo $product['quantity'] ?>
                                                     </td>
-                                                    <td>R$ <?php echo calculateTotal($product['price'], $product['quantity']) ?>
+                                                    <td>R$
+                                                        <?php echo calculatePercentage($product['price'], $product['featured_percentage']) ?>
                                                     </td>
                                                 </tr>
 
@@ -188,13 +196,20 @@
                                             <tr>
                                                 <td class="text-black font-weight-bold"><strong>Subtotal do
                                                         carrinho</strong></td>
-                                                <td class="text-black">R$259,89</td>
+                                                <td class="text-black">R$
+                                                    <?php echo calculateSubtotal($_SESSION['cart']) ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-black font-weight-bold"><strong>Total do pedido</strong>
                                                 </td>
-                                                <td class="text-black font-weight-bold"><strong>R$
-                                                        <?php echo calculateCartTotal($_SESSION['cart']) ?></strong></td>
+                                                <td class="text-black font-weight-bold">
+                                                    <div id="totalOperation">
+                                                        <strong>R$
+                                                            <?php echo calculateCartTotal($_SESSION['cart']) ?>
+                                                        </strong>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
 
@@ -260,7 +275,7 @@
                                                 <input type="text" class="form-control" id="card_cpf" name="card_cpf">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <div class="col-md-12">
                                                 <label for="card_amount" class="text-black">Quantidade de parcelas <span
                                                         class="text-danger">*</span></label>
@@ -273,7 +288,7 @@
                                                     <option value="6">6x de R$48,92 com juros (R$271,43)</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                     </div>
 
@@ -296,34 +311,41 @@
 <script>
     function applyCoupom() {
         const coupon = document.getElementById("coupon").value;
+        if (coupon !== "PRIMEIRACOMPRA") {
+            coupomInfo = `<div class="alert alert-danger" role="alert">
+             Cupom inválido.
+        </div>`;
+            document.getElementById("coupom-info").innerHTML = coupomInfo;
 
-        coupomInfo = `<div class="input-group" style="padding-top: 12px;">
-                    <div class="feature row justify-content-between flex-row">
-                        <p>${coupon}</p>
-                    </div>
-                  </div>`;
+        } else {
 
-        document.getElementById("coupom-info").innerHTML = coupomInfo;
+            coupomInfo = `<div class="input-group" style="padding-top: 12px;">
+            <div class="feature row justify-content-between flex-row">
+            <p>${coupon}</p>
+            </div>
+            </div>`;
 
-        calculateDelivery();
+            document.getElementById("coupom-info").innerHTML = coupomInfo;
+
+            calculateDelivery();
+        }
     }
 
     function calculateDelivery() {
         const BASE_URL = "<?php echo BASE_URL; ?>";
-
         const cep = document.getElementById("cep").value;
         const coupon = document.getElementById("coupon").value;
+        const email = document.getElementById("email").value;
         let deliveryInfo = `
         <div class="text-center p-4">
             <div class="spinner-border" role="status">
             </div>
-            </div>
+        </div>
         `;
         document.getElementById("delivery-info").innerHTML = deliveryInfo;
 
-
         setTimeout(() => {
-            fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}`)
+            fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}&email=${email}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Erro HTTP: ${response.status}`);
@@ -373,6 +395,7 @@
                     }
 
                     document.getElementById("delivery-info").innerHTML = deliveryInfo;
+
                 })
                 .catch(error => console.error("Erro ao calcular o frete:", error));
         }, 800);

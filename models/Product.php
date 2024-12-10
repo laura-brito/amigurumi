@@ -28,6 +28,24 @@ class Product extends model
         return $products;
     }
 
+
+    public function getRelatedProducts($id)
+    {
+        $products = array();
+
+        $sql = 'SELECT * FROM product where id != :id LIMIT 4';
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $products = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        return $products;
+    }
+
+
     public function getById($id)
     {
         $retorno = array();

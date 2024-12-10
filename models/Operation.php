@@ -25,6 +25,7 @@ class Operation extends model
 
     public function addOperation()
     {
+
         $sql = "INSERT INTO operation(product_id, person_email, date_added, total_quantity, total_price, unit_price, transaction_id)
 		        VALUES(:product_id, :person_email, :date_added, :total_quantity, :total_price, :unit_price, :transaction_id)";
 
@@ -80,4 +81,5 @@ class Operation extends model
 
         return $result;
     }
+
 }

@@ -20,12 +20,16 @@ class shopController extends controller
         $id = $_GET['id'];
         $shop = new Product();
         $this->data['product'] = $shop->getById($id);
+        $this->data['relatedProducts'] = $shop->getRelatedProducts($id);
         $this->loadTemplate('product', $this->data);
     }
 
     public function cart()
     {
         $cart = new Cart();
+        if (isset($_SESSION['deliveryCost'])) {
+            unset($_SESSION['deliveryCost']);
+        }
 
         $this->data['products'] = $cart->getCartItems();
 
@@ -55,6 +59,7 @@ class shopController extends controller
         } else {
             $_SESSION['cart'][$id]['quantity'] += $quantity;
         }
+
         print_r($_SESSION['cart']);
 
         header("Location: " . BASE_URL . "shop/cart");

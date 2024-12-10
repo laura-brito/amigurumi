@@ -11,23 +11,20 @@
                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
                             </div>
-                            <div class="carousel-inner">
+                            <!-- <div class="carousel-inner"> -->
 
-                                <div class="carousel-item active">
-                                    <?php if ($product['featured'] == 1): ?>
-                                        <div class="badge bg-dark text-white position-absolute"
-                                            style="top: 0.5rem; right: 0.5rem">
-                                            Promoção</div>
-                                    <?php endif ?>
-                                    <img src="<?php echo BASE_URL . 'assets/images/products/' . $product['id'] . '-1.png'; ?>"
-                                        class="d-block w-100" alt="...">
+                            <div class="carousel-item active">
+                                <?php if ($product['featured'] == 1): ?>
+                                    <div class="badge bg-dark text-white position-absolute"
+                                        style="top: 0.5rem; right: 0.5rem">
+                                        Promoção</div>
+                                <?php endif ?>
+                                <img src="<?php echo BASE_URL . 'assets/images/products/' . $product['id'] . '-1.png'; ?>"
+                                    class="d-block w-100" alt="...">
 
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../images/amigurumis-produtos/gata-2.png" class="d-block w-100" alt="...">
-                                </div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
+                            <!-- </div> -->
+                            <!-- <button class="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Anterior</span>
@@ -36,7 +33,7 @@
                                 data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Próximo</span>
-                            </button>
+                            </button> -->
                         </div>
                     </div>
 
@@ -104,119 +101,36 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Produtos relacionados</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="../images/amigurumis-produtos/raposa-2.png" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Amigurumi
-                                        Raposa de Nove Caudas
-                                    </h5>
-                                    <!-- Product price-->
-                                    R$159,90
+                    <?php foreach ($relatedProducts as $related): ?>
+                        <div ss="col mb-5">
+                            <div class="card h-100">
+                                <a href="<?php echo BASE_URL . 'shop/product?id=' . $related['id'] ?>"
+                                    style="text-decoration: none;">
+                                    <!-- Product image-->
+                                    <img class="card-img-top"
+                                        src="<?php echo BASE_URL . 'assets/images/products/' . $related['id'] . '-1.png'; ?>"
+                                        <!-- Product details-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- Product name-->
+                                            <h5 class="fw-bolder"><?php echo $related['name'] ?>
+                                            </h5>
+                                            <!-- Product price-->
+                                            R$<?php echo number_format($related['price'], 2, ',', '.') ?>
 
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="details-product-6.html"><i class="bi bi-plus-circle-fill"></i></a></div>
+                                        </div>
+                                    </div>
+                                    <!-- Product actions-->
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                                href="details-product-6.html"><i class="bi bi-plus-circle-fill"></i></a>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="../images/amigurumis-produtos/coelho-3.png" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Amigurumi
-                                        Coelhinhos Siameses
-                                    </h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    R$189,90
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="../product-details/details-product-2.html"><i
-                                            class="bi bi-plus-circle-fill"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="../images/amigurumis-produtos/unicornio-4.png" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Amigurumi
-                                        Unicórnio</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    R$159,90
 
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="details-product-8.html"><i class="bi bi-plus-circle-fill"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="../images/amigurumis-produtos/pinguim-2.png" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Amigurumi
-                                        Pinguim</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    R$159,90
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="details-product-4.html"><i class="bi bi-plus-circle-fill"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
