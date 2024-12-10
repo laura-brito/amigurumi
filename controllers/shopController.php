@@ -20,6 +20,7 @@ class shopController extends controller
         $id = $_GET['id'];
         $shop = new Product();
         $this->data['product'] = $shop->getById($id);
+        $this->data['relatedProducts'] = $shop->getRelatedProducts($id);
         $this->loadTemplate('product', $this->data);
     }
 

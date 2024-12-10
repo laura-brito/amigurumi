@@ -275,7 +275,7 @@
                                                 <input type="text" class="form-control" id="card_cpf" name="card_cpf">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <div class="col-md-12">
                                                 <label for="card_amount" class="text-black">Quantidade de parcelas <span
                                                         class="text-danger">*</span></label>
@@ -288,7 +288,7 @@
                                                     <option value="6">6x de R$48,92 com juros (R$271,43)</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                     </div>
 
