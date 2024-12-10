@@ -7,7 +7,6 @@ class Core
 		//criando uma instancia do roteador
 		$router = new Router();
 
-		//configurando as rotas
 		// Home
 		$router->addRoute('/', array(new homeController(), 'index'));
 		$router->addRoute('/home', array(new homeController(), 'index'));
@@ -37,9 +36,10 @@ class Core
 		$router->addRoute('/checkout', array(new checkoutController(), 'index'));
 		$router->addRoute('/checkout/delivery', array(new checkoutController(), 'calculate_delivery'));
 		$router->addRoute('/checkout/complete', array(new checkoutController(), 'checkout'));
-		// $router->addRoute('/pessoa/add_action', array(new personController(), 'add_action'));
-		// $router->addRoute('/pessoa/editar', array(new personController(), 'editar'));
-		// $router->addRoute('/pessoa/edit_action', array(new personController(), 'edit_action'));
+
+		// Transaction
+		$router->addRoute('/transaction', array(new transactionController(), 'index'));
+		// $router->addRoute('/transaction/detail', array(new transactionController(), 'detail'));
 
 		//lidando com a requisição
 		$route = isset($_GET['route']) ? '/' . $_GET['route'] : '/';

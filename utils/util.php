@@ -18,12 +18,28 @@ function calculateTotal($price, $quantity)
     return number_format($result, 2, ",", ".");
 }
 
-function calculateDelivery($weight, $distance, $baseRate = 10)
+function calculateDelivery($weight, $distance, $cep, $baseRate = 10)
 {
+    $distance = strlen($cep) * 10;
     $ratePerKm = 0.05;
     $ratePerKg = 2;
-
     $deliveryCost = $baseRate + ($ratePerKm * $distance) + ($ratePerKg * $weight);
 
     return number_format($deliveryCost, 2, ',', '.');
+}
+
+function calculateCartTotal($cart)
+{
+    $total = 0;
+
+    foreach ($cart as $item) {
+        $total += $item['price'] * $item['quantity'];
+    }
+
+    return number_format($total, 2, ',', '.');
+}
+
+function generateTransactionId()
+{
+    return mt_rand(1, 1000);
 }

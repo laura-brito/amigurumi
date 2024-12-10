@@ -43,17 +43,39 @@ class Operation extends model
     public function getByTransaction($transactionId)
     {
         $result = array();
-
-        $sql = 'SELECT * 
-	         	  FROM operation
-	         	 WHERE transactionId = :transactionId';
+        $sql = 'SELECT * FROM operation as o 
+                inner join operation_delivery as od on od.transaction_id = o.transaction_id 
+                inner join product as pr on pr.id = o.product_id 
+                where o.transaction_id = :transactionId;';
 
         $sql = $this->db->prepare($sql);
-        $sql->bindValue(":transaction_id", $transactionId);
+        $sql->bindValue(":transactionId", $transactionId);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
-            $result = $sql->fetch(\PDO::FETCH_ASSOC);
+
+            $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        return $result;
+    }
+
+    public function getAll($email)
+    {
+        $result = array();
+        $sql = 'SELECT * FROM operation as o 
+                inner join operation_delivery as od on od.transaction_id = o.transaction_id 
+                inner join product as pr on pr.id = o.product_id 
+                where o.person_email = :email
+                order by o.date_added desc;';
+
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+
+            $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         return $result;

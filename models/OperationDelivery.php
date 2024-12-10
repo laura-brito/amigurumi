@@ -40,10 +40,10 @@ class OperationDelivery extends model
 
         $sql = 'SELECT * 
 	         	  FROM operation_delivery
-	         	 WHERE transactionId = :transactionId';
+	         	 WHERE transaction_id = :transactionId';
 
         $sql = $this->db->prepare($sql);
-        $sql->bindValue(":transaction_id", $transactionId);
+        $sql->bindValue(":transactionId", $transactionId);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {

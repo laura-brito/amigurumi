@@ -97,7 +97,8 @@
                                 <span class="text-black">Total</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">R$259,89</strong>
+                                <strong class="text-black">R$
+                                    <?php echo calculateCartTotal($_SESSION['cart']) ?></strong>
                             </div>
                         </div>
 

@@ -1,6 +1,5 @@
 <footer class="footer-section border-top">
     <div class="container relative">
-
         <div class="row g-5 mb-5">
             <div class="col-md-4">
                 <div class="mb-4 footer-logo-wrap">

@@ -26,23 +26,29 @@ class checkoutController extends controller
             exit;
         }
 
-        $email = $_POST['email'];
-        $name = $_POST['name'];
-        $createAccount = $_POST['create_account'];
-        $passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $person = new Person($name, $email, $passwordHash);
+        $email = isset($_SESSION['person']) ? $_SESSION['person']['email'] : $_POST['email'];
 
-        if ($createAccount == 1 && !$person->emailExists()) {
-            $result = $person->addPerson();
-            if ($result == 0) {
-                return;
+        $name = isset($_SESSION['person']) ? $_SESSION['person']['name'] : $_POST['name'];
+
+        $createAccount = $_POST['create_account'];
+
+        $passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $person = new Person();
+        $person->create($name, $email, $passwordHash);
+
+        if ($createAccount) {
+            if ($createAccount == 1 && !$person->emailExists()) {
+                $result = $person->addPerson();
+                if ($result == 0) {
+                    return;
+                }
             }
         }
 
         $operation = new Operation();
-        $transactionId = 1;
-
+        $transactionId = generateTransactionId();
         foreach ($products as &$product) {
+
             $productId = $product['id'];
             $totalQuantity = $product['quantity'];
             $totalPrice = $product['price'] * $product['quantity'];
@@ -60,13 +66,10 @@ class checkoutController extends controller
         $addressLine = $_POST['address_line'];
         $number = $_POST['number'];
         $complement = $_POST['complement'];
-        echo $stateUf;
         $delivery = new OperationDelivery();
         $delivery->create($stateUf, $addressLine, $number, $complement, $transactionId);
 
-        print_r($delivery);
         $result = $delivery->addOperationDelivery();
-        echo 'criou delivery';
 
         if ($result == 0) {
             return;
@@ -79,17 +82,32 @@ class checkoutController extends controller
         $cvv = $_POST['cvv'];
         $cardAmount = $_POST['card_amount'];
 
+        // Fazer chamada na api do banco
+
+        if (isset($_SESSION['cart'])) {
+            unset($_SESSION['cart']);
+        }
+
+        $this->data['transactionId'] = $transactionId;
         $this->loadTemplate('thankyou', $this->data);
     }
 
     public function calculate_delivery()
     {
-        $cep = intval($_POST['cep']);
-        $distance = 0;
+        $coupon = isset($_GET['coupon']) ? $_GET['coupon'] : null;
+        if ($coupon !== null && $coupon !== '' && $coupon === 'PRIMEIRACOMPRA') {
+            $result = 0;
+            header('Content-Type: application/json');
+            echo json_encode(['deliveryCost' => $result]);
+            exit;
+        }
+
+        $cep = intval($_GET['cep']);
         $distance = rad2deg($cep);
+        $result = calculateDelivery(15, $distance, $cep);
 
-        $this->data['deliveryCost'] = calculateDelivery(15, $distance);
-
-        $this->loadTemplate('checkout', $this->data);
+        header('Content-Type: application/json');
+        echo json_encode(['deliveryCost' => $result]);
+        exit;
     }
 }

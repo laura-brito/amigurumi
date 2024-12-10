@@ -48,7 +48,6 @@ $totalItems = countCartItems();
 
                 <?php if (isset($_SESSION['person'])): ?>
                     <div class="d-flex align-self-center">
-
                         <div class="dropdown">
                             <a class="dropdown-toggle link-light" style="text-decoration: none;" href="#"
                                 data-bs-toggle="dropdown" aria-expanded="false">Olá,
@@ -56,8 +55,11 @@ $totalItems = countCartItems();
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Meus pedidos</a></li>
+                                <!-- <li><a class="dropdown-item" href="#">Meus dados</a></li> -->
+                                <li><a class="dropdown-item"
+                                        href="<?php echo BASE_URL . 'transaction?email=' . $_SESSION['person']['email'] ?>">Meus
+                                        pedidos</a>
+                                </li>
                                 <hr>
                                 <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Sair</a></li>
                             </ul>

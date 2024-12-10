@@ -12,8 +12,12 @@
                     </svg>
                 </span>
                 <h2 class="display-3 text-black">Obrigada!</h2>
-                <p class="lead mb-5">Seu pedido foi completado com sucesso.</p>
-                <p><a href="shop.html" class="btn btn-sm btn-outline-black">Voltar à loja</a></p>
+                <p class="lead mb-5">Seu pedido foi feito com sucesso.</p>
+                <p><a href="<?php echo BASE_URL . 'transaction/detail?id=' . htmlspecialchars($transactionId); ?>"
+                        class="btn btn-sm btn-outline-black">Ver detalhes do
+                        pedido</a>
+                <p><a href="<?php BASE_URL; ?>shop" class="btn btn-sm btn-outline-black">Voltar à loja</a></p>
+                </p>
             </div>
         </div>
     </div>

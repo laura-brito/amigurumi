@@ -2,16 +2,19 @@
 
 <div class="nana-section">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="border p-4 rounded" role="alert">
-                    Já é cliente? <a data-bs-toggle="modal" data-bs-target="#loginModal" class="link pointer">Clique
-                        aqui</a>
-                    para fazer
-                    login.
+        <?php if (!isset($_SESSION['person'])): ?>
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="border p-4 rounded" role="alert">
+                        Já é cliente? <a data-bs-toggle="modal" data-bs-target="#loginModal" class="link pointer">Clique
+                            aqui</a>
+                        para fazer
+                        login.
+                    </div>
+
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
         <form action="<?php echo BASE_URL; ?>checkout/complete" method="post">
             <div class="row">
                 <div class="col-md-6 mb-5 mb-md-0" id="checkout-form">
@@ -55,13 +58,7 @@
                                 <option value="Tocantins">Tocantins</option>
                             </select>
                         </div>
-                        <div class="form-group row p-1">
-                            <div class="col-md-12">
-                                <label for="name" class="text-black">Nome Completo<span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" name="name">
-                            </div>
-                        </div>
+
 
 
                         <div class="form-group row p-1">
@@ -87,32 +84,39 @@
                             </div>
                         </div>
 
-
-                        <div class="form-group row p-1 mb-5">
-                            <div class="col-md-12">
-                                <label for="email" class="text-black">E-mail <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="email" name="email">
+                        <?php if (!isset($_SESSION['person'])): ?>
+                            <div class="form-group row p-1">
+                                <div class="col-md-12">
+                                    <label for="name" class="text-black">Nome Completo<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" name="name">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row p-1">
-                            <label for="create_account" class="text-black" data-bs-toggle="collapse"
-                                href="#create_an_account" role="button" aria-expanded="false"
-                                aria-controls="create_an_account"><input type="checkbox" value="1" id="create_account"
-                                    name="create_account">
-                                Criar uma conta com esses dados?</label>
-                            <div class="collapse" id="create_an_account">
-                                <div class="py-2 mb-4">
-                                    <p class="mb-3">Por favor insira uma senha para criar uma conta. Caso já possua
-                                        cadastro em nosso site, faça login na opção no início da página.</p>
-                                    <div class="form-group">
-                                        <label for="password" class="text-black">Senha</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            placeholder="Senha">
+                            <div class="form-group row p-1 mb-5">
+                                <div class="col-md-12">
+                                    <label for="email" class="text-black">E-mail <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group row p-1">
+                                <label for="create_account" class="text-black" data-bs-toggle="collapse"
+                                    href="#create_an_account" role="button" aria-expanded="false"
+                                    aria-controls="create_an_account"><input type="checkbox" value="1" id="create_account"
+                                        name="create_account">
+                                    Criar uma conta com esses dados?</label>
+                                <div class="collapse" id="create_an_account">
+                                    <div class="py-2 mb-4">
+                                        <p class="mb-3">Por favor insira uma senha para criar uma conta. Caso já possua
+                                            cadastro em nosso site, faça login na opção no início da página.</p>
+                                        <div class="form-group">
+                                            <label for="password" class="text-black">Senha</label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Senha">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                         </br>
                     </div>
                 </div>
@@ -124,16 +128,16 @@
                             <h2 class="h3 mb-3 text-black">Cupom</h2>
                             <div class="p-3 p-lg-5 border">
 
-                                <label for="c_code" class="text-black mb-3">Insira aqui seu código de cupom</label>
+                                <label for="coupon" class="text-black mb-3">Insira aqui seu código de cupom</label>
                                 <div class="input-group w-75 couponcode-wrap">
-                                    <input type="text" class="form-control me-2" id="c_code" placeholder="Cupom"
+                                    <input type="text" class="form-control me-2" id="coupon" placeholder="Cupom"
                                         aria-label="Coupon Code" aria-describedby="button-addon2">
                                     <div class="input-group-append">
                                         <button class="btn btn-black btn-sm" type="button"
-                                            id="button-addon2">Aplicar</button>
+                                            onclick="applyCoupom()">Aplicar</button>
                                     </div>
                                 </div>
-
+                                <div id="coupom-info"></div>
                             </div>
                         </div>
                     </div>
@@ -141,42 +145,19 @@
                         <div class="col-md-12">
                             <h2 class="h3 mb-3 text-black">Frete</h2>
                             <div class="p-3 p-lg-5 border">
-                                <form method="post" action="<?php echo BASE_URL; ?>checkout/delivery">
 
-                                    <label for="delivery" class="text-black mb-3">Calcular frete</label>
+                                <label for="cep" class="text-black mb-3">Calcular frete</label>
 
-                                    <div class="input-group w-75 delivery-wrap">
-                                        <input type="text" class="form-control me-2" style="border-radius: 8px;;"
-                                            id="delivery" name="delivery" placeholder="xxxxxxxx"
-                                            aria-label="Coupon Code" aria-describedby="button-addon2" />
-                                        <div class="input-group-append">
-                                            <button class="btn btn-black btn-sm" type="submit"
-                                                id="button-addon2">Calcular</button>
-                                        </div>
+                                <div class="input-group w-75 delivery-wrap">
+                                    <input type="text" class="form-control me-2" style="border-radius: 8px;" id="cep"
+                                        name="cep" placeholder="xxxxxxxx" aria-label="Cep Code"
+                                        aria-describedby="button-addon2" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-black btn-sm" type="button"
+                                            onclick="calculateDelivery()">Calcular</button>
                                     </div>
-                                </form>
-
-                                <?php if (isset($deliveryCost)): ?>
-                                    <div class="input-group" style="padding-top: 12px;">
-                                        <div class="feature row justify-content-between flex-row">
-                                            <div class="col-2">
-                                                <div class="icon">
-                                                    <img src="<?php echo BASE_URL; ?>assets/images/truck.svg" alt="Image"
-                                                        class="imf-fluid">
-                                                </div>
-                                            </div>
-                                            <div class="col-10" style="padding-left: 24px;">
-                                                <strong>Receba em até 7 dias úteis</strong>
-                                                <p style="font-size: 12px; padding-top: 0px;">Após o pagamento confirmado
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <p>R$ <?php echo $deliveryCost; ?></p>
-                                            <p style="color: #59c00b;">Frete Grátis</p>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
+                                </div>
+                                <div id="delivery-info"></div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +193,8 @@
                                             <tr>
                                                 <td class="text-black font-weight-bold"><strong>Total do pedido</strong>
                                                 </td>
-                                                <td class="text-black font-weight-bold"><strong>R$259,89</strong></td>
+                                                <td class="text-black font-weight-bold"><strong>R$
+                                                        <?php echo calculateCartTotal($_SESSION['cart']) ?></strong></td>
                                             </tr>
                                         </tbody>
 
@@ -311,3 +293,89 @@
         </form>
     </div>
 </div>
+<script>
+    function applyCoupom() {
+        const coupon = document.getElementById("coupon").value;
+
+        coupomInfo = `<div class="input-group" style="padding-top: 12px;">
+                    <div class="feature row justify-content-between flex-row">
+                        <p>${coupon}</p>
+                    </div>
+                  </div>`;
+
+        document.getElementById("coupom-info").innerHTML = coupomInfo;
+
+        calculateDelivery();
+    }
+
+    function calculateDelivery() {
+        const BASE_URL = "<?php echo BASE_URL; ?>";
+
+        const cep = document.getElementById("cep").value;
+        const coupon = document.getElementById("coupon").value;
+        let deliveryInfo = `
+        <div class="text-center p-4">
+            <div class="spinner-border" role="status">
+            </div>
+            </div>
+        `;
+        document.getElementById("delivery-info").innerHTML = deliveryInfo;
+
+
+        setTimeout(() => {
+            fetch(`${BASE_URL}checkout/delivery?cep=${cep}&coupon=${coupon}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.deliveryCost === 0) {
+
+                        deliveryInfo = `
+                    <div class="input-group" style="padding-top: 12px;">
+                    <div class="feature row justify-content-between flex-row">
+                    <div class="col-2">
+                    <div class="icon">
+                    <img src="${BASE_URL}assets/images/truck.svg" alt="Image" class="imf-fluid">
+                    </div>
+                    </div>
+                    <div class="col-10" style="padding-left: 24px;">
+                            <strong>Receba em até 7 dias úteis</strong>
+                            <p style="font-size: 12px; padding-top: 0px;">Após o pagamento confirmado</p>
+                            </div>
+                            </div>
+                    <div class="row">
+                    <p style="color: #59c00b;">Frete Grátis</p>
+                    </div>
+                    </div>
+                    `;
+                    } else {
+                        deliveryInfo = `
+                    <div class="input-group" style="padding-top: 12px;">
+                    <div class="feature row justify-content-between flex-row">
+                    <div class="col-2">
+                    <div class="icon">
+                    <img src="${BASE_URL}assets/images/truck.svg" alt="Image" class="imf-fluid">
+                    </div>
+                    </div>
+                    <div class="col-10" style="padding-left: 24px;">
+                            <strong>Receba em até 7 dias úteis</strong>
+                            <p style="font-size: 12px; padding-top: 0px;">Após o pagamento confirmado</p>
+                            </div>
+                            </div>
+                    <div class="row">
+                    <p>R$ ${data.deliveryCost}</p>
+                    </div>
+                    </div>
+                    `;
+                    }
+
+                    document.getElementById("delivery-info").innerHTML = deliveryInfo;
+                })
+                .catch(error => console.error("Erro ao calcular o frete:", error));
+        }, 800);
+
+    }
+</script>
