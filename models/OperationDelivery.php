@@ -6,6 +6,7 @@ class OperationDelivery extends model
     public $number;
     public $complement;
     public $transactionId;
+    public $status;
     public function __construct()
     {
         parent::__construct();
@@ -17,12 +18,13 @@ class OperationDelivery extends model
         $this->number = $number;
         $this->complement = $complement;
         $this->transactionId = $transactionId;
+        $this->status = 0;
     }
 
     public function addOperationDelivery()
     {
-        $sql = "INSERT INTO operation_delivery(transaction_id, address_line, number, state_uf, complement)
-		        VALUES(:transaction_id, :address_line, :number, :state_uf, :complement)";
+        $sql = "INSERT INTO operation_delivery(transaction_id, address_line, number, state_uf, complement, status)
+		        VALUES(:transaction_id, :address_line, :number, :state_uf, :complement, :status)";
 
         $sql = $this->db->prepare($sql);
         $sql->bindValue('address_line', $this->addressLine);
@@ -30,6 +32,7 @@ class OperationDelivery extends model
         $sql->bindValue('number', $this->number);
         $sql->bindValue('state_uf', $this->stateUf);
         $sql->bindValue('complement', $this->complement);
+        $sql->bindValue('status', $this->status);
 
         return $sql->execute();
     }

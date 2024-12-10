@@ -25,10 +25,10 @@ class transactionController extends controller
                 $address = $address->getByTransaction($transactionId);
 
                 $delivery = "{$address['address_line']}, {$address['number']} - {$address['complement']}, {$address['state_uf']}";
-
                 $groupedTransactions[$transactionId] = [
                     'date' => $date,
                     'delivery' => $delivery,
+                    'status' => $address['status'],
                     'items' => []
                 ];
             }
@@ -37,11 +37,11 @@ class transactionController extends controller
         }
 
         foreach ($groupedTransactions as $transactionId => &$transaction) {
-            $total = 0;
+            $total = 0.0;
             foreach ($transaction['items'] as $item) {
-                $total += $item['price'] * $item['quantity'];
+                $total += (double) $item['total_price'];
             }
-            $transaction['total'] = $total;
+            $groupedTransactions[$transactionId]['total'] = $total;
         }
 
         $this->data['groupedTransactions'] = $groupedTransactions;

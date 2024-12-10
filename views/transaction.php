@@ -19,9 +19,11 @@
                             <div class="card card-2 mb-3 border-0">
                                 <div class="row g-0">
                                     <div class="col-md-2">
-                                        <img src="<?php echo BASE_URL . 'assets/images/products/' . $item['product_id'] . '-1.png'; ?>"
-                                            class="img-fluid"
-                                            alt="Imagem do produto <?php echo htmlspecialchars($item['name']); ?>">
+                                        <a href="<?php echo BASE_URL . 'shop/product?id=' . $item['product_id'] ?>">
+                                            <img src="<?php echo BASE_URL . 'assets/images/products/' . $item['product_id'] . '-1.png'; ?>"
+                                                class="img-fluid"
+                                                alt="Imagem do produto <?php echo htmlspecialchars($item['name']); ?>">
+                                        </a>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="card-body">
@@ -76,10 +78,9 @@
                         <div class="mb-3">
                             <p class="mb-1 text-dark"><small><strong>Progresso da Entrega</strong></small></p>
                             <div class="progress">
-                                <div class="progress-bar bg-success" style="width: <?php echo $items['progress']; ?>%;"
-                                    role="progressbar" aria-valuenow="<?php echo $items['progress']; ?>" aria-valuemin="0"
-                                    aria-valuemax="100">
-                                    <?php echo $items['progress']; ?>%
+                                <div class="progress-bar bg-success" style="width: <?php echo $items['status']; ?>%;"
+                                    role="progressbar" aria-valuenow="<?php echo $items['status']; ?>" aria-valuemin="0"
+                                    aria-valuemax="3">
                                 </div>
                             </div>
                         </div>
