@@ -10,7 +10,6 @@ $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Nana</title>
-    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <meta name="author" content="Laura Brito Lisboa">
     <link rel="shortcut icon" href="favicon.png">
 
